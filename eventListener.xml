@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/eventListener.xsd">
+	<import>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>assignVariables</eventname>
+			<inherit>1</inherit>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>readFormParameters</eventname>
+			<inherit>1</inherit>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardEditForm</eventclassname>
+			<eventname>readData</eventname>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>save</eventname>
+			<inherit>1</inherit>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>saved</eventname>
+			<inherit>1</inherit>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wbb\acp\form\BoardAddForm</eventclassname>
+			<eventname>validate</eventname>
+			<inherit>1</inherit>
+			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
+		</eventlistener>
+	</import>
+</data>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="de">
+	<category name="wbb.acp.board">
+		<item name="wbb.acp.board.icon"><![CDATA[Standard-Icon]]></item>
+		<item name="wbb.acp.board.icon.defaultIcon"><![CDATA[(Standard-Icon)]]></item>
+		<item name="wbb.acp.board.icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben dem Forum angezeigt, wenn es keine ungelesene Themen enthält.]]></item>
+		<item name="wbb.acp.board.icon.error.notValid"><![CDATA[Das gewählte Icon ist ungültig. Bitte wählen Sie ein Icon aus der Auswahl.]]></item>
+		<item name="wbb.acp.board.iconColor"><![CDATA[Farbe des Standard-Icon]]></item>
+		<item name="wbb.acp.board.iconColor.error.notValid"><![CDATA[Die ausgewählte Farbe ist ungültig. Bitte verwenden Sie Farbwähler, um eine Farbe auszuwählen.]]></item>
+		<item name="wbb.acp.board.iconNew"><![CDATA[Ungelesen-Icon]]></item>
+		<item name="wbb.acp.board.iconNew.description"><![CDATA[Das Icon wird in der Forenauflistung neben dem Forum angezeigt, wenn es ungelesene Themen enthält.]]></item>
+		<item name="wbb.acp.board.iconNew.error.notValid"><![CDATA[Das gewählte Icon ist ungültig. Bitte wählen Sie ein Icon aus der Auswahl.]]></item>
+		<item name="wbb.acp.board.iconNewColor"><![CDATA[Farbe des Ungelesen-Icon]]></item>
+		<item name="wbb.acp.board.iconNewColor.error.notValid"><![CDATA[Die ausgewählte Farbe ist ungültig. Bitte verwenden Sie Farbwähler, um eine Farbe auszuwählen.]]></item>
+		<item name="wbb.acp.board.icons"><![CDATA[Icons]]></item>
+		<item name="wbb.acp.board.useIconColor"><![CDATA[Spezielle Farbe für das Standard-Icon verwenden]]></item>
+		<item name="wbb.acp.board.useIconNewColor"><![CDATA[Spezielle Farbe für das Ungelesen-Icon verwenden]]></item>
+	</category>
+</language>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<language xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/language.xsd" languagecode="en">
+	<category name="wbb.acp.board">
+		<item name="wbb.acp.board.icon"><![CDATA[Default Icon]]></item>
+		<item name="wbb.acp.board.icon.defaultIcon"><![CDATA[(Default Icon)]]></item>
+		<item name="wbb.acp.board.icon.description"><![CDATA[The icon will be shown in the board list next to the board if it does not contain unread threads.]]></item>
+		<item name="wbb.acp.board.icon.error.notValid"><![CDATA[The choosen icon is invalid. Please choose an icon from the selection.]]></item>
+		<item name="wbb.acp.board.iconColor"><![CDATA[Color of Default Icon]]></item>
+		<item name="wbb.acp.board.iconColor.error.notValid"><![CDATA[The choosen color is invalid. Please use the color picker to select a color.]]></item>
+		<item name="wbb.acp.board.iconNew"><![CDATA[Unread Icon]]></item>
+		<item name="wbb.acp.board.iconNew.description"><![CDATA[The icon will be shown in the board list next to the board if it contains unread threads.]]></item>
+		<item name="wbb.acp.board.iconNew.error.notValid"><![CDATA[The choosen icon is invalid. Please choose an icon from the selection.]]></item>
+		<item name="wbb.acp.board.iconNewColor"><![CDATA[Color of Unread Icon]]></item>
+		<item name="wbb.acp.board.iconNewColor.error.notValid"><![CDATA[The choosen color is invalid. Please use the color picker to select a color.]]></item>
+		<item name="wbb.acp.board.icons"><![CDATA[Icons]]></item>
+		<item name="wbb.acp.board.useIconColor"><![CDATA[Use special color for default icon]]></item>
+		<item name="wbb.acp.board.useIconNewColor"><![CDATA[Use special color for unread icon]]></item>
+	</category>
+</language>

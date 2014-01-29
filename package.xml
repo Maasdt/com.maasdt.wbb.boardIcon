@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<package name="com.maasdt.wbb.boardIcon" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
+	<packageinformation>
+		<packagename>WBB: Board Icons</packagename>
+		<packagename language="de">WBB: Forum-Icons</packagename>
+		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
+		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
+		<version>1.0.0 Alpha 1</version>
+		<date>2014-01-29</date>
+	</packageinformation>
+	
+	<authorinformation>
+		<author>Maasdt</author>
+		<authorurl>http://www.maasdt.com</authorurl>
+	</authorinformation>
+	
+	<requiredpackages>
+		<requiredpackage minversion="2.0.1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="4.0.1">com.woltlab.wbb</requiredpackage>
+		
+		<requiredpackage minversion="1.0.0 Alpha 1" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
+	</requiredpackages>
+	
+	<instructions type="install">
+		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
+		<instruction type="file" application="wbb">files.tar</instruction>
+		<instruction type="sql">install.sql</instruction>
+		
+		<instruction type="eventListener">eventListener.xml</instruction>
+		<instruction type="language">language/*.xml</instruction>
+		<instruction type="templateListener">templateListener.xml</instruction>
+	</instructions>
+</package>

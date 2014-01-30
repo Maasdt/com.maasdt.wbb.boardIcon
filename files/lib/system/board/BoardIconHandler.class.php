@@ -27,33 +27,49 @@ class BoardIconHandler extends SingletonFactory {
 		
 		$fileContent = '';
 		foreach ($boardList as $board) {
-			if ($board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor) {
+			if (($board->isBoard() || $board->isExternalLink()) && ($board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor)) {
 				$fileContent .= "\tli[data-board-id=\"".$board->boardID."\"] .icon {\n";
 				
-				if ($board->icon || $board->iconColor) {
-					$fileContent .= "\t\t&.icon-folder-close-alt::before {\n";
-					
-					if ($board->icon) {
-						$fileContent .= "\t\t\tcontent: @".$board->icon.";\n";
+				if ($board->isBoard()) {
+					if ($board->icon || $board->iconColor) {
+						$fileContent .= "\t\t&.icon-folder-close-alt::before {\n";
+						
+						if ($board->icon) {
+							$fileContent .= "\t\t\tcontent: @".$board->icon.";\n";
+						}
+						if ($board->iconColor) {
+							$fileContent .= "\t\t\tcolor: ".$board->iconColor.";\n";
+						}
+						
+						$fileContent .= "\t\t}\n";
 					}
-					if ($board->iconColor) {
-						$fileContent .= "\t\t\tcolor: ".$board->iconColor.";\n";
-					}
 					
-					$fileContent .= "\t\t}\n";
+					if ($board->iconNew || $board->iconNewColor) {
+						$fileContent .= "\t\t&.icon-folder-close::before {\n";
+						
+						if ($board->iconNew) {
+							$fileContent .= "\t\t\tcontent: @".$board->iconNew.";\n";
+						}
+						if ($board->iconNewColor) {
+							$fileContent .= "\t\t\tcolor: ".$board->iconNewColor.";\n";
+						}
+						
+						$fileContent .= "\t\t}\n";
+					}
 				}
-				
-				if ($board->iconNew || $board->iconNewColor) {
-					$fileContent .= "\t\t&.icon-folder-close::before {\n";
-					
-					if ($board->iconNew) {
-						$fileContent .= "\t\t\tcontent: @".$board->iconNew.";\n";
+				else if ($board->isExternalLink()) {
+					if ($board->icon || $board->iconColor) {
+						$fileContent .= "\t\t&.icon-globe::before {\n";
+						
+						if ($board->icon) {
+							$fileContent .= "\t\t\tcontent: @".$board->icon.";\n";
+						}
+						if ($board->iconColor) {
+							$fileContent .= "\t\t\tcolor: ".$board->iconColor.";\n";
+						}
+						
+						$fileContent .= "\t\t}\n";
 					}
-					if ($board->iconNewColor) {
-						$fileContent .= "\t\t\tcolor: ".$board->iconNewColor.";\n";
-					}
-					
-					$fileContent .= "\t\t}\n";
 				}
 				
 				$fileContent .= "\t}\n\n";

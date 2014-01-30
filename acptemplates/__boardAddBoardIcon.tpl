@@ -20,11 +20,21 @@
 			boardType = parseInt(boardType);
 			
 			// check if board is a category
-			if (boardType == 1) {
-				$('#iconContainer').hide();
-			}
-			else {
-				$('#iconContainer').show();
+			switch (boardType) {
+				case 0:
+					$('#iconContainer').show();
+					$('.jsBoardNewIconElement').show();
+				break;
+				
+				case 1:
+					$('#iconContainer').hide();
+					$('.jsBoardNewIconElement').show();
+				break;
+				
+				case 2:
+					$('#iconContainer').show();
+					$('.jsBoardNewIconElement').hide();
+				break;
 			}
 		}
 		
@@ -104,7 +114,7 @@
 		</dd>
 	</dl>
 	
-	<dl{if $errorField == 'iconNew'} class="formError"{/if}>
+	<dl class="jsBoardNewIconElement{if $errorField == 'iconNew'} formError{/if}">
 		<dt><label for="iconNew">{lang}wbb.acp.board.iconNew{/lang}</label></dt>
 		<dd>
 			<select name="iconNew" id="iconNew">
@@ -121,12 +131,12 @@
 		</dd>
 	</dl>
 	
-	<dl>
+	<dl class="jsBoardNewIconElement">
 		<dt></dt>
 		<dd><label><input type="checkbox" id="useIconNewColor" name="useIconNewColor"{if $useIconNewColor} checked="checked"{/if} /> {lang}wbb.acp.board.useIconNewColor{/lang}</label></dd>
 	</dl>
 	
-	<dl id="iconNewColorContainer"{if $errorField == 'iconNewColor'} class="formError"{/if}>
+	<dl id="iconNewColorContainer" class="jsBoardNewIconElement{if $errorField == 'iconNewColor'} formError{/if}">
 		<dt><label for="iconNewColor">{lang}wbb.acp.board.iconNewColor{/lang}</label></dt>
 		<dd>
 			<figure>

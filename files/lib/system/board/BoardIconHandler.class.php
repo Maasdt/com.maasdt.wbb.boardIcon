@@ -28,7 +28,7 @@ class BoardIconHandler extends SingletonFactory {
 		$fileContent = '';
 		foreach ($boardList as $board) {
 			if (($board->isBoard() || $board->isExternalLink()) && ($board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor)) {
-				$fileContent .= "\tli[data-board-id=\"".$board->boardID."\"] .icon {\n";
+				$fileContent .= "\tli[data-board-id=\"".$board->boardID."\"] > .wbbBoard > .icon {\n";
 				
 				if ($board->isBoard()) {
 					if ($board->icon || $board->iconColor) {

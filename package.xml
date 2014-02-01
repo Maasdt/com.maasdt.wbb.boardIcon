@@ -5,8 +5,8 @@
 		<packagename language="de">WBB: Forum-Icons</packagename>
 		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.0.0 Alpha 1</version>
-		<date>2014-01-29</date>
+		<version>1.0.0 RC 1</version>
+		<date>2014-02-01</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -18,7 +18,7 @@
 		<requiredpackage minversion="2.0.2 pl 1">com.woltlab.wcf</requiredpackage>
 		<requiredpackage minversion="4.0.2 pl 1">com.woltlab.wbb</requiredpackage>
 		
-		<requiredpackage minversion="1.0.0 Alpha 1" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
+		<requiredpackage minversion="1.0.0 RC 1" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
 	</requiredpackages>
 	
 	<instructions type="install">

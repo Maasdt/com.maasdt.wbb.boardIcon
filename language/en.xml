@@ -16,4 +16,11 @@
 		<item name="wbb.acp.board.useIconColor"><![CDATA[Use special color for default icon]]></item>
 		<item name="wbb.acp.board.useIconNewColor"><![CDATA[Use special color for unread icon]]></item>
 	</category>
+	
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Default Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[The icon will be shown in the board list next to the board with no unread threads.]]></item>
+		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Unread Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[The icon will be shown in the board list next to the boards with unread threads.]]></item>
+	</category>
 </language>

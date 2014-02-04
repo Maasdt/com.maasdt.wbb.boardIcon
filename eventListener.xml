@@ -42,5 +42,12 @@
 			<inherit>1</inherit>
 			<listenerclassname>wbb\system\event\listener\BoardAddBoardIconListener</listenerclassname>
 		</eventlistener>
+		
+		<eventlistener>
+			<environment>admin</environment>
+			<eventclassname>wcf\acp\form\OptionForm</eventclassname>
+			<eventname>saved</eventname>
+			<listenerclassname>wbb\system\event\listener\OptionFormBoardIconListener</listenerclassname>
+		</eventlistener>
 	</import>
 </data>

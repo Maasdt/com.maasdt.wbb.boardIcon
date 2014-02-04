@@ -16,4 +16,11 @@
 		<item name="wbb.acp.board.useIconColor"><![CDATA[Spezielle Farbe für das Standard-Icon verwenden]]></item>
 		<item name="wbb.acp.board.useIconNewColor"><![CDATA[Spezielle Farbe für das Ungelesen-Icon verwenden]]></item>
 	</category>
+	
+	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Standard-Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren ohne ungelesene Themen angezeigt.]]></item>
+		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Ungelesen-Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren mit ungelesenen Themen angezeigt.]]></item>
+	</category>
 </language>

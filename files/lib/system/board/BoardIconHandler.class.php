@@ -2,6 +2,7 @@
 namespace wbb\system\board;
 use wbb\data\board\BoardList;
 use wcf\data\application\Application;
+use wcf\data\option\Option;
 use wcf\system\event\EventHandler;
 use wcf\system\io\File;
 use wcf\system\style\StyleHandler;
@@ -26,6 +27,21 @@ class BoardIconHandler extends SingletonFactory {
 		$boardList->readObjects();
 		
 		$fileContent = '';
+		
+		$options = Option::getOptions();
+		if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
+			$fileContent .= "\tli > .wbbBoard > .icon {\n";
+			
+			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
+				$fileContent .= "\t\t&.icon-folder-close-alt::before {\n\t\t\tcontent: @".$options['WBB_DEFAULT_BOARD_ICON']->optionValue.";\n\t\t}\n";
+			}
+			if ($options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
+				$fileContent .= "\t\t&.icon-folder-close::before {\n\t\t\tcontent: @".$options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue.";\n\t\t}\n";
+			}
+			
+			$fileContent .= "\t}\n\n";
+		}
+		
 		foreach ($boardList as $board) {
 			if (($board->isBoard() || $board->isExternalLink()) && ($board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor)) {
 				$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"] > .icon {\n";

@@ -5,8 +5,8 @@
 		<packagename language="de">WBB: Forum-Icons</packagename>
 		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.0.0 RC 1</version>
-		<date>2014-02-01</date>
+		<version>1.0.0 RC 2</version>
+		<date>2014-02-06</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -29,5 +29,10 @@
 		<instruction type="eventListener">eventListener.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0 RC 1">
+		<instruction type="file" application="wbb">files.tar</instruction>
+		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon_1.0.0_RC_2.php</instruction>
 	</instructions>
 </package>

@@ -15,7 +15,7 @@ use wcf\system\SingletonFactory;
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
  * @package	com.maasdt.wbb.icon
  * @subpackage	system.board
- * @category	Community Framework
+ * @category	Burning Board
  */
 class BoardIconHandler extends SingletonFactory {
 	/**

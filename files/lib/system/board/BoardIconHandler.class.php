@@ -1,5 +1,6 @@
 <?php
 namespace wbb\system\board;
+use wbb\data\board\icon\BoardIconList;
 use wbb\data\board\BoardList;
 use wcf\data\application\Application;
 use wcf\data\option\Option;
@@ -14,11 +15,58 @@ use wcf\system\SingletonFactory;
  * @author	Matthias Schmidt
  * @copyright	2014 Maasdt
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
- * @package	com.maasdt.wbb.icon
+ * @package	com.maasdt.wbb.boardIcon
  * @subpackage	system.board
  * @category	Burning Board
  */
 class BoardIconHandler extends SingletonFactory {
+	/**
+	 * list with available board icons
+	 * @var	array<wbb\data\board\icon\BoardIcon>
+	 */
+	protected $boardIcons = null;
+	
+	/**
+	 * Returns the board icon with the given id or null if no such board icon
+	 * exists.
+	 * 
+	 * @param	integer		$iconID
+	 * @return	\wbb\data\board\icon\BoardIcon
+	 */
+	protected function getBoardIcon($iconID) {
+		if ($this->boardIcons === null) {
+			$boardIconList = new BoardIconList();
+			$boardIconList->readObjects();
+			$this->boardIcons = $boardIconList->getObjects();
+		}
+		
+		if (isset($this->boardIcons[$iconID])) {
+			return $this->boardIcons[$iconID];
+		}
+		
+		return null;
+	}
+	
+	/**
+	 * Returns the LESS code for the icon with the given name.
+	 * 
+	 * @param	string		$selector
+	 * @param	string		$iconName
+	 * @return	string
+	 */
+	protected function getIconLESSCode($selector, $iconName) {
+		if (preg_match('~wbbBoardIcon(\d+)~', $iconName, $matches)) {
+			$boardIcon = $this->getBoardIcon($matches[1]);
+			if ($boardIcon) {
+				return "\t\t&.".$selector." {\n\t\t\t&::before {\n\t\t\t\tcontent: '';\n\t\t\t\}\n\t\t\t\nbackground-image: url(".$boardIcon->getLink().");\n\t\t\t\nbackground-size: 100%;\t\t}\n";
+			}
+			
+			return '';
+		}
+		
+		return "\t\t&.".$selector."::before {\n\t\t\tcontent: @".$iconName.";\n\t\t}\n";
+	}
+	
 	/**
 	 * Writes the style file with the board icons.
 	 */
@@ -33,10 +81,10 @@ class BoardIconHandler extends SingletonFactory {
 			$fileContent .= "\tli > .wbbBoard > .icon {\n";
 			
 			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
-				$fileContent .= "\t\t&.icon-folder-close-alt::before {\n\t\t\tcontent: @".$options['WBB_DEFAULT_BOARD_ICON']->optionValue.";\n\t\t}\n";
+				$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $options['WBB_DEFAULT_BOARD_ICON']->optionValue);
 			}
 			if ($options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
-				$fileContent .= "\t\t&.icon-folder-close::before {\n\t\t\tcontent: @".$options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue.";\n\t\t}\n";
+				$fileContent .= $this->getIconLESSCode('icon-folder-close', $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue);
 			}
 			
 			$fileContent .= "\t}\n\n";
@@ -48,43 +96,31 @@ class BoardIconHandler extends SingletonFactory {
 				
 				if ($board->isBoard()) {
 					if ($board->icon || $board->iconColor) {
-						$fileContent .= "\t&.icon-folder-close-alt::before {\n";
-						
 						if ($board->icon) {
-							$fileContent .= "\t\tcontent: @".$board->icon.";\n";
+							$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon);
 						}
 						if ($board->iconColor) {
-							$fileContent .= "\t\tcolor: ".$board->iconColor.";\n";
+							$fileContent .= "\t&.icon-folder-close-alt::before {\n\t\tcolor: ".$board->iconColor.";\n\t}\n";
 						}
-						
-						$fileContent .= "\t}\n";
 					}
 					
 					if ($board->iconNew || $board->iconNewColor) {
-						$fileContent .= "\t&.icon-folder-close::before {\n";
-						
-						if ($board->iconNew) {
-							$fileContent .= "\t\tcontent: @".$board->iconNew.";\n";
+						if ($board->icon) {
+							$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew);
 						}
-						if ($board->iconNewColor) {
-							$fileContent .= "\t\tcolor: ".$board->iconNewColor.";\n";
+						if ($board->iconColor) {
+							$fileContent .= "\t&.icon-folder-close::before {\n\t\tcolor: ".$board->iconNewColor.";\n\t}\n";
 						}
-						
-						$fileContent .= "\t}\n";
 					}
 				}
 				else if ($board->isExternalLink()) {
 					if ($board->icon || $board->iconColor) {
-						$fileContent .= "\t&.icon-globe::before {\n";
-						
 						if ($board->icon) {
-							$fileContent .= "\t\tcontent: @".$board->icon.";\n";
+							$fileContent .= $this->getIconLESSCode('icon-globe', $board->icon);
 						}
 						if ($board->iconColor) {
-							$fileContent .= "\t\tcolor: ".$board->iconColor.";\n";
+							$fileContent .= "\t&.icon-globe::before {\n\t\tcolor: ".$board->iconColor.";\n\t}\n";
 						}
-						
-						$fileContent .= "\t}\n";
 					}
 				}
 				

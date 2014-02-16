@@ -2,6 +2,7 @@
 namespace wbb\system\event\listener;
 use wbb\acp\form\BoardAddForm;
 use wbb\acp\form\BoardEditForm;
+use wbb\data\board\icon\BoardIconList;
 use wbb\system\board\BoardIconHandler;
 use wcf\system\event\IEventListener;
 use wcf\system\exception\UserInputException;
@@ -16,7 +17,7 @@ use wcf\util\StringUtil;
  * @author	Matthias Schmidt
  * @copyright	2014 Maasdt
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
- * @package	com.maasdt.wbb.icon
+ * @package	com.maasdt.wbb.boardIcon
  * @subpackage	system.board
  * @category	Burning Board
  */
@@ -34,6 +35,12 @@ class BoardAddBoardIconListener implements IEventListener {
 	protected $iconColor = 'rgba(0, 0, 0, 1)';
 	
 	/**
+	 * data of the available icons used for the selection dialog
+	 * @var	array
+	 */
+	protected $iconData = array();
+	
+	/**
 	 * name of the board icon if the board contains unread threads
 	 * @var	string
 	 */
@@ -44,6 +51,12 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * @var	string
 	 */
 	protected $iconNewColor = 'rgba(0, 0, 0, 1)';
+	
+	/**
+	 * list of available icons
+	 * @var	array
+	 */
+	protected $icons = null;
 	
 	/**
 	 * indicates if a certain color is used for the board icon
@@ -65,9 +78,10 @@ class BoardAddBoardIconListener implements IEventListener {
 		WCF::getTPL()->assign(array(
 			'icon' => $this->icon,
 			'iconColor' => $this->iconColor ?: 'rgba(0, 0, 0, 1)',
+			'iconData' => $this->iconData,
 			'iconNew' => $this->iconNew,
 			'iconNewColor' => $this->iconNewColor ?: 'rgba(0, 0, 0, 1)',
-			'icons' => FontAwesomeIconUtil::getIcons(),
+			'icons' => $this->icons,
 			'useIconColor' => $this->useIconColor,
 			'useIconNewColor' => $this->useIconNewColor
 		));
@@ -78,6 +92,36 @@ class BoardAddBoardIconListener implements IEventListener {
 	 */
 	public function execute($eventObj, $className, $eventName) {
 		if (method_exists($this, $eventName)) {
+			if ($this->icons === null) {
+				$this->iconData = $this->icons = array();
+				
+				$boardIconList = new BoardIconList();
+				$boardIconList->readObjects();
+				if (count($boardIconList)) {
+					$sortedBoardIcons = $boardIconList->getObjects();
+					uasort($sortedBoardIcons, function(BoardIcon $boardIconA, BoardIcon $boardIconB) {
+						return strcmp($boardIconA->getTitle(), $boardIconB->getTitle());
+					});
+					
+					$boardIcons = array();
+					foreach ($sortedBoardIcons as $boardIcon) {
+						$this->icons['wbbBoardIcon'.$boardIcon->iconID] = $boardIcon->getTitle();
+						$this->iconData['wbbBoardIcon'.$boardIcon->iconID] = array(
+							'link' => $boardIcon->getLink(),
+							'title' => $boardIcon->getTitle()
+						);
+					}
+				}
+				
+				$this->icons = array_merge($this->icons, FontAwesomeIconUtil::getIcons());
+				
+				foreach (FontAwesomeIconUtil::getIcons() as $faIcon) {
+					$this->iconData[$faIcon] = array(
+						'title' => $faIcon
+					);
+				}
+			}
+			
 			$this->$eventName($eventObj);
 		}
 	}
@@ -140,7 +184,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * @see	\wcf\form\IForm::validate()
 	 */
 	protected function validate(BoardAddForm $eventObj) {
-		if (!empty($this->icon) && !FontAwesomeIconUtil::isValid($this->icon)) {
+		if (!empty($this->icon) && !isset($this->iconData[$this->icon])) {
 			throw new UserInputException('icon', 'notValid');
 		}
 		
@@ -154,7 +198,7 @@ class BoardAddBoardIconListener implements IEventListener {
 			$this->iconColor = '';
 		}
 		
-		if (!empty($this->iconNew) && !FontAwesomeIconUtil::isValid($this->iconNew)) {
+		if (!empty($this->iconNew) && !isset($this->iconData[$this->iconNew])) {
 			throw new UserInputException('iconNew', 'notValid');
 		}
 		

@@ -4,13 +4,13 @@
 		<options>
 			<option name="wbb_default_board_icon">
 				<categoryname>board.index.boards</categoryname>
-				<optiontype>fontAwesomeIconSelect</optiontype>
+				<optiontype>WBBBoardIconSelect</optiontype>
 				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
 			</option>
 			
 			<option name="wbb_default_new_board_icon">
 				<categoryname>board.index.boards</categoryname>
-				<optiontype>fontAwesomeIconSelect</optiontype>
+				<optiontype>WBBBoardIconSelect</optiontype>
 				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
 			</option>
 		</options>

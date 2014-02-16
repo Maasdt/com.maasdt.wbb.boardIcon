@@ -69,7 +69,17 @@
 		toggleColorPicker({@$useIconColor}, $('#iconColorContainer'));
 		toggleColorPicker({@$useIconNewColor}, $('#iconNewColorContainer'));
 		
-		new WCF.Icon.FontAwesome.IconList([ {implode from=$icons item='__icon'}'{@$__icon}'{/implode} ], '.jsFontAwesomeIconListButton');
+		var $icons = [ ];
+		{foreach from=$iconData item='__iconData'}
+			$icons.push({
+				{if $__iconData[link]|isset}
+					link: '{$__iconData[link]|encodeJS}',
+				{/if}
+				title: '{$__iconData[title]|encodeJS}'
+			});
+		{/foreach}
+		
+		new WBB.ACP.BoardIcon.IconList($icons, '.jsFontAwesomeIconListButton');
 	});
 	//]]>
 </script>

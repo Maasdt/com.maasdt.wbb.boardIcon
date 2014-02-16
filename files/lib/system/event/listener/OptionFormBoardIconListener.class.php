@@ -9,7 +9,7 @@ use wcf\system\event\IEventListener;
  * @author	Matthias Schmidt
  * @copyright	2014 Maasdt
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
- * @package	com.maasdt.wbb.icon
+ * @package	com.maasdt.wbb.boardIcon
  * @subpackage	system.board
  * @category	Community Framework
  */

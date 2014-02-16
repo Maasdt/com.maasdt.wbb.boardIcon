@@ -17,10 +17,28 @@
 		<item name="wbb.acp.board.useIconNewColor"><![CDATA[Spezielle Farbe für das Ungelesen-Icon verwenden]]></item>
 	</category>
 	
+	<category name="wbb.acp.boardIcon">
+		<item name="wbb.acp.boardIcon.add"><![CDATA[Forum-Icon hinzufügen]]></item>
+		<item name="wbb.acp.boardIcon.button.choose"><![CDATA[Forum-Icon auswählen]]></item>
+		<item name="wbb.acp.boardIcon.edit"><![CDATA[Forum-Icon bearbeiten]]></item>
+		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>
+		<item name="wbb.acp.boardIcon.icon.description"><![CDATA[Erlaubte Dateiendungen: gif, jpg, jepg, png]]></item>
+		<item name="wbb.acp.boardIcon.info"><![CDATA[Bitte beachten Sie, dass standardmäßig ein 32&times;32 Pixel großes Icon verwendet wird. Sollten Sie jedoch einen angepassten Stil verwenden, kann es nötig sein, dass die Icons größer sind, weshalb beim Upload keine Überprüfung der Größe des Icons stattfindet!]]></item>
+	</category>
+	
+	<category name="wbb.acp.menu">
+		<item name="wbb.acp.menu.link.boardIcon.add"><![CDATA[Forum-Icon hinzufügen]]></item>
+		<item name="wbb.acp.menu.link.boardIcon.list"><![CDATA[Forum-Icons auflisten]]></item>
+	</category>
+	
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Standard-Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren ohne ungelesene Themen angezeigt.]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Ungelesen-Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren mit ungelesenen Themen angezeigt.]]></item>
+	</category>
+	
+	<category name="wcf.acp.group">
+		<item name="wcf.acp.group.option.admin.board.canManageBoardIcon"><![CDATA[Kann Forum-Icons verwalten]]></item>
 	</category>
 </language>

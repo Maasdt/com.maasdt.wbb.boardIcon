@@ -5,8 +5,8 @@
 		<packagename language="de">WBB: Forum-Icons</packagename>
 		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.0.0</version>
-		<date>2014-02-16</date>
+		<version>1.0.0 pl 1</version>
+		<date>2014-02-19</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -33,6 +33,11 @@
 	
 	<instructions type="update" fromversion="1.0.0 RC 2">
 		<!-- nothing changed but at least one update instruction has to exist -->
+		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
+	</instructions>
+	
+	<instructions type="update" fromversion="1.0.0">
 		<instruction type="file" application="wbb">files.tar</instruction>
+		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon_1.0.0_pl_1.php</instruction>
 	</instructions>
 </package>

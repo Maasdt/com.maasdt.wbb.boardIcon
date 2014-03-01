@@ -30,7 +30,7 @@ class BoardIcon extends WBBDatabaseObject implements ILinkableObject, IRouteCont
 	 * @see	\wcf\data\ILinkableObject::getLink()
 	 */
 	public function getLink() {
-		return WCF::getPath('wbb').'icon/board/'.$this->iconID.'.'.$this->fileExtension;
+		return WCF::getPath('wbb').'icon/board/'.$this->iconID.'-'.$this->fileHash.'.'.$this->fileExtension;
 	}
 	
 	/**
@@ -39,7 +39,7 @@ class BoardIcon extends WBBDatabaseObject implements ILinkableObject, IRouteCont
 	 * @return	string
 	 */
 	public function getLocation() {
-		return WBB_DIR.'icon/board/'.$this->iconID.'.'.$this->fileExtension;
+		return WBB_DIR.'icon/board/'.$this->iconID.'-'.$this->fileHash.'.'.$this->fileExtension;
 	}
 	
 	/**

@@ -2,6 +2,7 @@
 namespace wbb\system\event\listener;
 use wbb\acp\form\BoardAddForm;
 use wbb\acp\form\BoardEditForm;
+use wbb\data\board\icon\BoardIcon;
 use wbb\data\board\icon\BoardIconList;
 use wbb\system\board\BoardIconHandler;
 use wcf\system\event\IEventListener;

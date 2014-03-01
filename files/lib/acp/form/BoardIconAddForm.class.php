@@ -2,6 +2,7 @@
 namespace wbb\acp\form;
 use wbb\data\board\icon\BoardIconAction;
 use wbb\data\board\icon\BoardIconEditor;
+use wcf\data\package\PackageCache;
 use wcf\form\AbstractForm;
 use wcf\system\exception\UserInputException;
 use wcf\system\language\I18nHandler;
@@ -9,7 +10,7 @@ use wcf\system\WCF;
 use wcf\util\StringUtil;
 
 /**
- * Shows all uploaded board icons.
+ * Shows the form to add a new board icon.
  * 
  * @author	Matthias Schmidt
  * @copyright	2014 Maasdt
@@ -91,11 +92,25 @@ class BoardIconAddForm extends AbstractForm {
 		if (!I18nHandler::getInstance()->isPlainValue('title')) {
 			$boardIconEditor = new BoardIconEditor($returnValues['returnValues']);
 			$boardIconEditor->update(array(
-				'title' => 'wbb.acp.board.icon.title.boardIcon'.$boardIconEditor->iconID
+				'title' => 'wbb.acp.boardIcon.title.boardIcon'.$boardIconEditor->iconID
 			));
+			
+			I18nHandler::getInstance()->save('title', 'wbb.acp.boardIcon.title'.$boardIconEditor->iconID, 'wbb.acp.boardIcon', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'));
 		}
 		
 		$this->saved();
+	}
+	
+	/**
+	 * @see	\wcf\form\AbstractForm::saved()
+	 */
+	protected function saved() {
+		parent::saved();
+		
+		I18nHandler::getInstance()->reset();
+		
+		// show success message
+		WCF::getTPL()->assign('success', true);
 	}
 	
 	/**
@@ -113,6 +128,13 @@ class BoardIconAddForm extends AbstractForm {
 			}
 		}
 		
+		$this->validateIcon();
+	}
+	
+	/**
+	 * Checks if an icon has been uploaded.
+	 */
+	protected function validateIcon() {
 		if (!WCF::getSession()->getVar('wbbBoardIcon-'.$this->tmpHash)) {
 			throw new UserInputException('icon');
 		}

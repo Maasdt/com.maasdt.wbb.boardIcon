@@ -6,7 +6,7 @@
 	$(function() {
 		WCF.Language.add('wcf.global.button.upload', '{lang}wcf.global.button.upload{/lang}');
 		
-		new WBB.ACP.BoardIcon.IconUpload({if $action == 'add'}0{else}{@$boardIcon->icon}{/if}, '{$tmpHash}');
+		new WBB.ACP.BoardIcon.IconUpload({if $action == 'add'}0{else}{@$boardIcon->iconID}{/if}, '{$tmpHash}');
 	});
 	//]]>
 </script>
@@ -32,7 +32,7 @@
 					<div class="dropdownMenu">
 						<ul class="scrollableDropdownMenu">
 							{foreach from=$boardIcons item='editableBoardIcon'}
-								<li{if $editableBoardIcon->iconID == $boardIcon->iconID} class="active"{/if}><a href="{link controller='BoardIconEdit' id=$editableBoardIcon application='wbb'}{/link}">{$editableBoardIcon->getTitle()}</a></li>
+								<li{if $editableBoardIcon->iconID == $boardIcon->iconID} class="active"{/if}><a href="{link controller='BoardIconEdit' object=$editableBoardIcon application='wbb'}{/link}">{$editableBoardIcon->getTitle()}</a></li>
 							{/foreach}
 						</ul>
 					</div>
@@ -71,7 +71,7 @@
 			<dl{if $errorField == 'icon'} class="formError"{/if}>
 				<dt><label for="icon">{lang}wbb.acp.boardIcon.icon{/lang}</label></dt>
 				<dd class="framed" id="boardIconContainer">
-					<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon"{if $action == 'add'} style="display: none; max-width: 100%;"{/if} />
+					<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon" style="max-width: 100%;{if $action == 'add'} display: none;{/if}" />
 					<div id="uploadIcon"></div>
 					{if $errorField == 'icon'}
 						<small class="innerError">

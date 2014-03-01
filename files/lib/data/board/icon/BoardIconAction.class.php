@@ -1,5 +1,6 @@
 <?php
 namespace wbb\data\board\icon;
+use wbb\system\board\BoardIconHandler;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\exception\UserInputException;
 use wcf\system\upload\DefaultUploadFileValidationStrategy;
@@ -16,6 +17,12 @@ use wcf\system\WCF;
  * @category	Burning Board
  */
 class BoardIconAction extends AbstractDatabaseObjectAction {
+	/**
+	 * board icon the uploaded icon file belongs to
+	 * @var	wbb\data\board\icon\BoardIcon
+	 */
+	protected $boardIcon = null;
+	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
@@ -39,7 +46,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		$boardIcon = parent::create();
 		
 		// move file to final position
-		rename($fileLocation, WBB_DIR.'icon/board/'.$boardIcon->iconID.'.'.$boardIcon->fileExtension);
+		rename($fileLocation, $boardIcon->getLocation());
 		
 		return $boardIcon;
 	}
@@ -54,6 +61,8 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		foreach ($this->objects as $boardIcon) {
 			@unlink($boardIcon->getLocation());
 		}
+		
+		BoardIconHandler::getInstance()->writeStyleFile();
 		
 		return $returnValue;
 	}
@@ -105,7 +114,32 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 				$errorType = 'minWidth';
 			}
 			else {
-				if (@copy($file->getLocation(), WBB_DIR.'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension())) {
+				if ($this->boardIcon) {
+					$fileHash = sha1_file($file->getLocation());
+					$newFileLocation = WBB_DIR.'icon/board/'.$this->boardIcon->iconID.'-'.$fileHash.'.'.$file->getFileExtension();
+					if (@copy($file->getLocation(), $newFileLocation)) {
+						@unlink($file->getLocation());
+						
+						$boardIconEditor = new BoardIconEditor($this->boardIcon);
+						$boardIconEditor->update(array(
+							'fileExtension' => $file->getFileExtension(),
+							'fileHash' => $fileHash,
+							'filesize' => filesize($newFileLocation)
+						));
+						
+						BoardIconHandler::getInstance()->writeStyleFile();
+						
+						$this->boardIcon = new BoardIcon($this->boardIcon->iconID);
+						
+						return array(
+							'url' => $this->boardIcon->getLink()
+						);
+					}
+					else {
+						$errorType = 'uploadFailed';
+					}
+				}
+				else if (@copy($file->getLocation(), WBB_DIR.'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension())) {
 					@unlink($fileLocation);
 					
 					WCF::getSession()->register('wbbBoardIcon-'.$this->parameters['tmpHash'], $file->getFileExtension());

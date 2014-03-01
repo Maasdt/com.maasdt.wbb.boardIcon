@@ -23,7 +23,13 @@
 		<item name="wbb.acp.boardIcon.edit"><![CDATA[Forum-Icon bearbeiten]]></item>
 		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon.description"><![CDATA[Erlaubte Dateiendungen: gif, jpg, jepg, png]]></item>
-		<item name="wbb.acp.boardIcon.info"><![CDATA[Bitte beachten Sie, dass standardmäßig ein 32&times;32 Pixel großes Icon verwendet wird. Sollten Sie jedoch einen angepassten Stil verwenden, kann es nötig sein, dass die Icons größer sind, weshalb beim Upload keine Überprüfung der Größe des Icons stattfindet!]]></item>
+		<item name="wbb.acp.boardIcon.info"><![CDATA[Bitte beachten Sie, dass standardmäßig ein 32&times;32 Pixel großes Icon verwendet wird. Sollten Sie jedoch einen angepassten Stil verwenden, kann es nötig sein, dass die Icons größer sind, weshalb beim Upload keine lediglich die Mindestgröße der Größe des Icons überprüft wird.]]></item>
+		<item name="wbb.acp.boardIcon.list"><![CDATA[Forum-Icons]]></item>
+		<item name="wbb.acp.boardIcon.icon.error.invalidExtension"><![CDATA[]]></item>
+		<item name="wbb.acp.boardIcon.icon.error.minHeight"><![CDATA[]]></item>
+		<item name="wbb.acp.boardIcon.icon.error.minWidth"><![CDATA[]]></item>
+		<item name="wbb.acp.boardIcon.icon.error.noImage"><![CDATA[]]></item>
+		<item name="wbb.acp.boardIcon.icon.error.uploadFailed"><![CDATA[]]></item>
 	</category>
 	
 	<category name="wbb.acp.menu">

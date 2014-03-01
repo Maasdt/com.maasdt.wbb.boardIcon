@@ -34,14 +34,17 @@
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.0.0">
+	<instructions type="update" fromversion="1.0.0 pl 1">
 		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
 		<instruction type="file" application="wbb">files.tar</instruction>
 		<instruction type="sql">update_1.1.0_Beta_1.sql</instruction>
 		
 		<instruction type="acpMenu">acpMenu.xml</instruction>
+		<instruction type="eventListener">eventListener.xml</instruction>
 		<instruction type="language">language/*.xml</instruction>
 		<instruction type="option">option.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
+		
+		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon_1.1.0_Beta_1.php</instruction>
 	</instructions>
 </package>

@@ -30,7 +30,7 @@ if (WCF.Icon && WCF.Icon.FontAwesome && WCF.Icon.FontAwesome.IconList) {
 				var $iconName = this._icons[$index].title;
 				
 				if (this._icons[$index].link) {
-					$icon = '<img src="' + this._icons[$index].link + '" alt="" data-icon-name="' + $icon + '" />';
+					$icon = '<img src="' + this._icons[$index].link + '" alt="" data-icon-name="' + $icon + '" style="max-width: 32px; max-height: 32px;" />';
 				}
 				else {
 					$icon = '<span class="icon icon32 icon-' + $iconName + '" data-icon-name="' + $icon + '"></span>';

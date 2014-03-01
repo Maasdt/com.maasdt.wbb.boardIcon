@@ -94,24 +94,34 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		
 		$errorType = $file->getValidationErrorType();
 		if (!$errorType) {
-			// todo: validate size
-			
-			if (@copy($file->getLocation(), WBB_DIR.'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension())) {
-				@unlink($fileLocation);
-				
-				WCF::getSession()->register('wbbBoardIcon-'.$this->parameters['tmpHash'], $file->getFileExtension());
-				
-				return array(
-					'url' => WCF::getPath('wbb').'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension()
-				);
+			$imageData = $file->getImageData();
+			if ($imageData === null) {
+				$errorType = 'noImage';
+			}
+			else if ($imageData['height'] < 32) {
+				$errorType = 'minHeight';
+			}
+			else if ($imageData['width'] < 32) {
+				$errorType = 'minWidth';
 			}
 			else {
-				$errorType = 'uploadFailed';
+				if (@copy($file->getLocation(), WBB_DIR.'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension())) {
+					@unlink($fileLocation);
+					
+					WCF::getSession()->register('wbbBoardIcon-'.$this->parameters['tmpHash'], $file->getFileExtension());
+					
+					return array(
+						'url' => WCF::getPath('wbb').'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension()
+					);
+				}
+				else {
+					$errorType = 'uploadFailed';
+				}
 			}
 		}
 		
 		return array(
-			'errorMessage' => WCF::getLanguage()->get('wbb.acp.board.icon.icon.error.'.$errorType)
+			'errorMessage' => WCF::getLanguage()->get('wbb.acp.boardIcon.icon.error.'.$errorType)
 		);
 	}
 }

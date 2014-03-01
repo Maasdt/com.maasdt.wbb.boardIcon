@@ -1,5 +1,6 @@
 <script data-relocate="true" src="{@$__wcf->getPath()}js/WCF.ColorPicker.js?v={@$__wcfVersion}"></script>
 <script data-relocate="true" src="{@$__wcf->getPath()}js/WCF.Icon.FontAwesome.js?v={@$__wcfVersion}"></script>
+<script data-relocate="true" src="{@$__wcf->getPath('wbb')}acp/js/WBB.ACP.BoardIcon.js?v={@$__wcfVersion}"></script>
 <script data-relocate="true">
 	//<![CDATA[
 	$(function() {
@@ -70,8 +71,9 @@
 		toggleColorPicker({@$useIconNewColor}, $('#iconNewColorContainer'));
 		
 		var $icons = [ ];
-		{foreach from=$iconData item='__iconData'}
+		{foreach from=$iconData key='__iconIdentifier' item='__iconData'}
 			$icons.push({
+				icon: '{$__iconIdentifier}',
 				{if $__iconData[link]|isset}
 					link: '{$__iconData[link]|encodeJS}',
 				{/if}

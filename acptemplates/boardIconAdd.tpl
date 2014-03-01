@@ -39,7 +39,7 @@
 				</li>
 			{/if}
 			
-			<li><a href="{link controller='BoardIconList' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}wbb.acp.menu.link.board.icon.list{/lang}</span></a></li>
+			<li><a href="{link controller='BoardIconList' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}wbb.acp.menu.link.boardIcon.list{/lang}</span></a></li>
 			
 			{event name='contentNavigationButtons'}
 		</ul>
@@ -54,7 +54,7 @@
 			<dl{if $errorField == 'title'} class="formError"{/if}>
 				<dt><label for="title">{lang}wcf.global.title{/lang}</label></dt>
 				<dd>
-					<input type="text" id="title" name="title" value="{$i18nValues[title]}" required="required" autofocus="autofocus" class="long" />
+					<input type="text" id="title" name="title" value="{$i18nPlainValues[title]}" required="required" autofocus="autofocus" class="long" />
 					{if $errorField == 'title'}
 						<small class="innerError">
 							{if $errorType == 'empty'}
@@ -71,7 +71,7 @@
 			<dl{if $errorField == 'icon'} class="formError"{/if}>
 				<dt><label for="icon">{lang}wbb.acp.boardIcon.icon{/lang}</label></dt>
 				<dd class="framed" id="boardIconContainer">
-					<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon"{if $action == 'add'} style="display: none;"{/if} />
+					<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon"{if $action == 'add'} style="display: none; max-width: 100%;"{/if} />
 					<div id="uploadIcon"></div>
 					{if $errorField == 'icon'}
 						<small class="innerError">

@@ -10,16 +10,31 @@
  */
 WBB.ACP.BoardIcon = { };
 
+// check if WCF.Icon.FontAwesome.IconList exists
 if (WCF.Icon && WCF.Icon.FontAwesome && WCF.Icon.FontAwesome.IconList) {
+	/**
+	 * Handles the board icon list dialogs.
+	 */
 	WBB.ACP.BoardIcon.IconList = WCF.Icon.FontAwesome.IconList.extend({
+		/**
+		 * @see	WCF.Icon.FontAwesome.IconList._iconSelector
+		 */
+		_iconSelector: 'span.icon.icon32, img',
+		
 		/**
 		 * @see	WCF.Icon.FontAwesome.IconList._createListItems()
 		 */
 		_createListItems: function() {
 			for (var $index in this._icons) {
+				var $icon = this._icons[$index].icon;
 				var $iconName = this._icons[$index].title;
 				
-				var $icon = $('<span class="icon icon32 icon-' + $iconName + '" data-icon-name="' + $iconName + '" />');
+				if (this._icons[$index].link) {
+					$icon = '<img src="' + this._icons[$index].link + '" alt="" data-icon-name="' + $icon + '" />';
+				}
+				else {
+					$icon = '<span class="icon icon32 icon-' + $iconName + '" data-icon-name="' + $icon + '"></span>';
+				}
 				
 				$('<li><div class="box32">' + $icon + ' <p>' + $iconName + '</p></div></li>').appendTo(this._iconListPrototype);
 			}

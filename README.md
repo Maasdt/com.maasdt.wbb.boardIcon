@@ -9,4 +9,4 @@ You have the possibility to select a default icon if the board contains no unrea
 License
 -------
 
-This package licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License which can be found in the LICENSE file in this folder.
+This package is licensed under the Creative Commons Attribution-NonCommercial-ShareAlike License which can be found in the LICENSE file in this folder.

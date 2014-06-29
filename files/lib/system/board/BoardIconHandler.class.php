@@ -78,7 +78,7 @@ class BoardIconHandler extends SingletonFactory {
 		
 		$options = Option::getOptions();
 		if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
-			$fileContent .= "\tli > .wbbBoard > .icon {\n";
+			$fileContent .= ".wbbBoardList li > .wbbBoard > .icon,\n.wbbSubBoards li > .icon {\n";
 			
 			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
 				$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $options['WBB_DEFAULT_BOARD_ICON']->optionValue);

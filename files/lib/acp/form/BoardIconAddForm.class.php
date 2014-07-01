@@ -82,9 +82,9 @@ class BoardIconAddForm extends AbstractForm {
 		parent::save();
 		
 		$this->objectAction = new BoardIconAction(array(), 'create', array(
-			'data' => array(
+			'data' => array_merge($this->additionalFields, array(
 				'title' => I18nHandler::getInstance()->isPlainValue('title') ? I18nHandler::getInstance()->getValue('title') : ''
-			),
+			)),
 			'tmpHash' => $this->tmpHash
 		));
 		$returnValues = $this->objectAction->executeAction();

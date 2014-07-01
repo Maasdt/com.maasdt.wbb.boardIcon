@@ -103,9 +103,9 @@ class BoardIconEditForm extends BoardIconAddForm {
 		}
 		
 		$this->objectAction = new BoardIconAction(array($this->boardIcon), 'update', array(
-			'data' => array(
+			'data' => array_merge($this->additionalFields, array(
 				'title' => $title
-			),
+			)),
 			'tmpHash' => $this->tmpHash
 		));
 		$this->objectAction->executeAction();

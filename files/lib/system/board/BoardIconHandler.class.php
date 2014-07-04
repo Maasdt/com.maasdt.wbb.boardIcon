@@ -65,7 +65,7 @@ class BoardIconHandler extends SingletonFactory {
 			return '';
 		}
 		
-		return "\t&.".$selector." {\n\t\tbackground-image: none;\n\t\t\n\t\t&::before {\n\t\t\tcontent: @".$iconName.";".($iconColor ? "\n\t\t\tcolor: ".$iconColor.";" : "")."\n\t\t}\n\t}\n";
+		return "\t&.".$selector." {\n\t\tbackground-image: none;\n\t\t\n\t\t&::before {".($iconName ? "\n\t\t\tcontent: @".$iconName.";" : "").($iconColor ? "\n\t\t\tcolor: ".$iconColor.";" : "")."\n\t\t}\n\t}\n";
 	}
 	
 	/**
@@ -96,23 +96,17 @@ class BoardIconHandler extends SingletonFactory {
 				$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"] > .icon {\n";
 				
 				if ($board->isBoard()) {
-					if ($board->icon || $board->iconColor) {
-						if ($board->icon) {
-							$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor);
-						}
+					if ($board->icon) {
+						$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor ?: null);
 					}
 					
 					if ($board->iconNew || $board->iconNewColor) {
-						if ($board->icon) {
-							$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew, $board->iconNewColor);
-						}
+						$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew, $board->iconNewColor ?: null);
 					}
 				}
 				else if ($board->isExternalLink()) {
 					if ($board->icon || $board->iconColor) {
-						if ($board->icon) {
-							$fileContent .= $this->getIconLESSCode('icon-globe', $board->icon, $board->iconColor);
-						}
+						$fileContent .= $this->getIconLESSCode('icon-globe', $board->icon, $board->iconColor ?: null);
 					}
 				}
 				

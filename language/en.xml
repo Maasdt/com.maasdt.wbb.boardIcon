@@ -24,7 +24,7 @@
 		<item name="wbb.acp.boardIcon.edit"><![CDATA[Edit Board Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon.description"><![CDATA[Allowed file extensions: gif, jpg, jepg, png]]></item>
-		<item name="wbb.acp.boardIcon.info"><![CDATA[Please note that by default, an icon of size 32&times;32 pixels is used. If you are using a custom style, it might be necessary that the icons are bigger, hence the upload only checks the icon's minimum size.]]></item>
+		<item name="wbb.acp.boardIcon.info"><![CDATA[Please note that by default, icons of size 32&times;32 pixels are used. If you are using a custom style, it might be necessary that the icons are bigger, hence the upload only checks the icon's minimum size.]]></item>
 		<item name="wbb.acp.boardIcon.list"><![CDATA[Board Icons]]></item>
 		<item name="wbb.acp.boardIcon.icon.error.invalidExtension"><![CDATA[The uploaded file has an invalid file extension.]]></item>
 		<item name="wbb.acp.boardIcon.icon.error.minHeight"><![CDATA[The minimum height of the uploaded image has to be 32px.]]></item>

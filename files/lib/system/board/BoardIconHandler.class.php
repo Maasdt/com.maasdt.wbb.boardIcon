@@ -59,7 +59,7 @@ class BoardIconHandler extends SingletonFactory {
 		if (preg_match('~wbbBoardIcon(\d+)~', $iconName, $matches)) {
 			$boardIcon = $this->getBoardIcon($matches[1]);
 			if ($boardIcon) {
-				return "\t&.".$selector." {\n\t\t&::before {\n\t\t\tcontent: '';\n\t\t}\n\t\t\n\t\tbackground-image: url(".$boardIcon->getLink().");\n\t\tbackground-size: 100%;\n\t}\n";
+				return "\t&.".$selector." {\n\t\t&::before {\n\t\t\tcontent: '';\n\t\t}\n\t\t\n\t\tbackground-image: url(".$boardIcon->getLink().");\n\t\tbackground-size: 100%;\n\t\tbackground-repeat: no-repeat;\n\t}\n";
 			}
 			
 			return '';

@@ -70,6 +70,28 @@
 		toggleColorPicker({@$useIconColor}, $('#iconColorContainer'));
 		toggleColorPicker({@$useIconNewColor}, $('#iconNewColorContainer'));
 		
+		// hide color form elements if custom icon is selected
+		$('#icon').change(function() {
+			if (/wbbBoardIcon(\d+)/.test($(this).val())) {
+				$('#useIconColorContainer, #iconColorContainer').hide();
+			}
+			else {
+				$('#useIconColorContainer, #iconColorContainer').show();
+			}
+		})
+		
+		$('#iconNew').change(function() {
+			if (/wbbBoardIcon(\d+)/.test($(this).val())) {
+				$('#useIconNewColorContainer, #iconNewColorContainer').hide();
+			}
+			else {
+				$('#useIconNewColorContainer, #iconNewColorContainer').show();
+			}
+		})
+		
+		$('#icon, #iconNew').change();
+		
+		// prepare board icon selection list
 		var $icons = [ ];
 		{foreach from=$iconData key='__iconIdentifier' item='__iconData'}
 			$icons.push({
@@ -106,7 +128,7 @@
 		</dd>
 	</dl>
 	
-	<dl>
+	<dl id="useIconColorContainer">
 		<dt></dt>
 		<dd><label><input type="checkbox" id="useIconColor" name="useIconColor"{if $useIconColor} checked="checked"{/if} /> {lang}wbb.acp.board.useIconColor{/lang}</label></dd>
 	</dl>
@@ -143,7 +165,7 @@
 		</dd>
 	</dl>
 	
-	<dl class="jsBoardNewIconElement">
+	<dl id="useIconNewColorContainer" class="jsBoardNewIconElement">
 		<dt></dt>
 		<dd><label><input type="checkbox" id="useIconNewColor" name="useIconNewColor"{if $useIconNewColor} checked="checked"{/if} /> {lang}wbb.acp.board.useIconNewColor{/lang}</label></dd>
 	</dl>

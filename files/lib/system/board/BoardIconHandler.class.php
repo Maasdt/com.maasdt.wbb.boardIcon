@@ -96,12 +96,17 @@ class BoardIconHandler extends SingletonFactory {
 				$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"] > .icon {\n";
 				
 				if ($board->isBoard()) {
-					if ($board->icon) {
-						$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor ?: null);
+					if ($board->isClosed) {
+						$fileContent .= $this->getIconLESSCode('icon-lock', $board->icon, $board->iconColor ?: null);
 					}
-					
-					if ($board->iconNew || $board->iconNewColor) {
-						$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew, $board->iconNewColor ?: null);
+					else {
+						if ($board->icon) {
+							$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor ?: null);
+						}
+						
+						if ($board->iconNew || $board->iconNewColor) {
+							$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew, $board->iconNewColor ?: null);
+						}
 					}
 				}
 				else if ($board->isExternalLink()) {
@@ -111,6 +116,14 @@ class BoardIconHandler extends SingletonFactory {
 				}
 				
 				$fileContent .= "}\n";
+				
+				if ($board->isBoard() && $board->isClosed && ($board->iconNew || $board->iconNewColor)) {
+					$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard.new > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"].new > .icon {\n";
+					
+					$fileContent .= $this->getIconLESSCode('icon-lock', $board->iconNew, $board->iconNewColor ?: null);
+					
+					$fileContent .= "}\n";
+				}
 			}
 		}
 		

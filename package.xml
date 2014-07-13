@@ -5,8 +5,8 @@
 		<packagename language="de">WBB: Forum-Icons</packagename>
 		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.1.0 RC 1</version>
-		<date>2014-07-04</date>
+		<version>1.1.0 RC 2</version>
+		<date>2014-07-13</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -34,7 +34,8 @@
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.1.0 Beta 1">
+	<instructions type="update" fromversion="1.1.0 RC 1">
+		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
 		<instruction type="file" application="wbb">files.tar</instruction>
 		
 		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon.php</instruction>
@@ -43,7 +44,7 @@
 	<instructions type="update" fromversion="1.0.0 pl 1">
 		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
 		<instruction type="file" application="wbb">files.tar</instruction>
-		<instruction type="sql">update_1.1.0_Beta_1.sql</instruction>
+		<instruction type="sql">update_1.1.0.sql</instruction>
 		
 		<instruction type="acpMenu">acpMenu.xml</instruction>
 		<instruction type="eventListener">eventListener.xml</instruction>

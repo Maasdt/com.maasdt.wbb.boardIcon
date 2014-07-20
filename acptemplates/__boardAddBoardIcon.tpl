@@ -24,12 +24,18 @@
 			switch (boardType) {
 				case 0:
 					$('#iconContainer').show();
-					$('.jsBoardNewIconElement').show();
+					
+					if (!/wbbBoardIcon(\d+)/.test($('#iconNew').val())) {
+						$('.jsBoardNewIconElement').show();
+					}
 				break;
 				
 				case 1:
 					$('#iconContainer').hide();
-					$('.jsBoardNewIconElement').show();
+					
+					if (!/wbbBoardIcon(\d+)/.test($('#iconNew').val())) {
+						$('.jsBoardNewIconElement').show();
+					}
 				break;
 				
 				case 2:
@@ -84,7 +90,7 @@
 			if (/wbbBoardIcon(\d+)/.test($(this).val())) {
 				$('#useIconNewColorContainer, #iconNewColorContainer').hide();
 			}
-			else {
+			else if ($('input[name=boardType]:checked').val() != 2) { // external links
 				$('#useIconNewColorContainer, #iconNewColorContainer').show();
 			}
 		})

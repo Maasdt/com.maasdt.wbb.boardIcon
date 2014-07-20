@@ -31,7 +31,7 @@
 		<ul>
 			<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
 			
-			{event name='contentNavigationButtons'} 
+			{event name='contentNavigationButtonsTop'}
 		</ul>
 	</nav>
 </div>
@@ -70,6 +70,18 @@
 				{/foreach}
 			</tbody>
 		</table>
+	</div>
+	
+	<div class="contentNavigation">
+		{@$pagesLinks}
+		
+		<nav>
+			<ul>
+				<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
+				
+				{event name='contentNavigationButtonsBottom'}
+			</ul>
+		</nav>
 	</div>
 {else}
 	<p class="info">{lang}wcf.global.noItems{/lang}</p>

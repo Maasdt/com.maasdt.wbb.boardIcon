@@ -5,7 +5,7 @@
 	//<![CDATA[
 	$(function() {
 		WCF.Language.addObject({
-			'wcf.icon.fontAwesome.dialogTitle': '{lang}wcf.icon.fontAwesome.dialogTitle{/lang}',
+			'wcf.icon.fontAwesome.iconSelection': '{lang}wcf.icon.fontAwesome.iconSelection{/lang}',
 			'wcf.icon.fontAwesome.selectIcon': '{lang}wcf.icon.fontAwesome.selectIcon{/lang}',
 			'wcf.style.colorPicker': '{lang}wcf.style.colorPicker{/lang}',
 			'wcf.style.colorPicker.button.apply': '{lang}wcf.style.colorPicker.button.apply{/lang}',

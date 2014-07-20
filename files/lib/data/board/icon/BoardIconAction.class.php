@@ -47,6 +47,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		
 		// move file to final position
 		rename($fileLocation, $boardIcon->getLocation());
+		WCF::getSession()->unregister('wbbBoardIcon-'.$this->parameters['tmpHash']);
 		
 		return $boardIcon;
 	}

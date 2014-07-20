@@ -61,7 +61,7 @@
 							
 							{event name='rowButtons'}
 						</td>
-						<td class="columnID">{@$boardIcon->icon}</td>
+						<td class="columnID">{@$boardIcon->iconID}</td>
 						<td class="columnIcon"><p class="framed"><img src="{@$boardIcon->getLink()}" style="height: 24px; width: 24px;" /></p></td>
 						<td class="columnTitle columnBoardIconIdentifier"><a href="{link controller='BoardIconEdit' object=$boardIcon application='wbb'}{/link}">{$boardIcon->getTitle()}</a></td>
 						

@@ -100,7 +100,7 @@ class BoardIconHandler extends SingletonFactory {
 						$fileContent .= $this->getIconLESSCode('icon-lock', $board->icon, $board->iconColor ?: null);
 					}
 					else {
-						if ($board->icon) {
+						if ($board->icon || $board->iconColor) {
 							$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor ?: null);
 						}
 						

@@ -19,7 +19,7 @@
 	
 	<category name="wbb.acp.boardIcon">
 		<item name="wbb.acp.boardIcon.add"><![CDATA[Forum-Icon hinzufügen]]></item>
-		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Wollen Sie dieses Forum-Icon wirklich löschen?]]></item>
+		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Wollen Sie das Forum-Icon „{$boardIcon->getTitle()}“ wirklich löschen?]]></item>
 		<item name="wbb.acp.boardIcon.button.choose"><![CDATA[Forum-Icon auswählen]]></item>
 		<item name="wbb.acp.boardIcon.edit"><![CDATA[Forum-Icon bearbeiten]]></item>
 		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>

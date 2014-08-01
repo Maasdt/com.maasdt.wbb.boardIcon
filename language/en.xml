@@ -19,7 +19,7 @@
 	
 	<category name="wbb.acp.boardIcon">
 		<item name="wbb.acp.boardIcon.add"><![CDATA[Add Forum Icon]]></item>
-		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Do you really want to delete this forum icon?]]></item>
+		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Do you really want to delete the forum icon “{$boardIcon->getTitle()}”?]]></item>
 		<item name="wbb.acp.boardIcon.button.choose"><![CDATA[Select Forum Icon]]></item>
 		<item name="wbb.acp.boardIcon.edit"><![CDATA[Edit Forum Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>

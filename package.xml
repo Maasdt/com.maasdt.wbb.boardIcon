@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="com.maasdt.wbb.boardIcon" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
-		<packagename>Burning Board: Board Icons</packagename>
+		<packagename>Burning Board: Forum Icons</packagename>
 		<packagename language="de">Burning Board: Forum-Icons</packagename>
-		<packagedescription><![CDATA[Adds possibility to select distinct icons for each board]]></packagedescription>
+		<packagedescription><![CDATA[Adds possibility to select distinct icons for each forum]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
 		<version>1.1.0 RC 2</version>
 		<date>2014-07-13</date>

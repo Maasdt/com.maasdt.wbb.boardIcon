@@ -3,12 +3,12 @@
 	<category name="wbb.acp.board">
 		<item name="wbb.acp.board.icon"><![CDATA[Default Icon]]></item>
 		<item name="wbb.acp.board.icon.defaultIcon"><![CDATA[(Default Icon)]]></item>
-		<item name="wbb.acp.board.icon.description"><![CDATA[The icon will be shown in the board list next to the board if it does not contain unread threads.]]></item>
+		<item name="wbb.acp.board.icon.description"><![CDATA[The icon will be shown in the forum list next to the board if it does not contain unread threads.]]></item>
 		<item name="wbb.acp.board.icon.error.notValid"><![CDATA[The choosen icon is invalid. Please choose an icon from the selection.]]></item>
 		<item name="wbb.acp.board.iconColor"><![CDATA[Color of Default Icon]]></item>
 		<item name="wbb.acp.board.iconColor.error.notValid"><![CDATA[The choosen color is invalid. Please use the color picker to select a color.]]></item>
 		<item name="wbb.acp.board.iconNew"><![CDATA[Unread Icon]]></item>
-		<item name="wbb.acp.board.iconNew.description"><![CDATA[The icon will be shown in the board list next to the board if it contains unread threads.]]></item>
+		<item name="wbb.acp.board.iconNew.description"><![CDATA[The icon will be shown in the forum list next to the board if it contains unread threads.]]></item>
 		<item name="wbb.acp.board.iconNew.error.notValid"><![CDATA[The choosen icon is invalid. Please choose an icon from the selection.]]></item>
 		<item name="wbb.acp.board.iconNewColor"><![CDATA[Color of Unread Icon]]></item>
 		<item name="wbb.acp.board.iconNewColor.error.notValid"><![CDATA[The choosen color is invalid. Please use the color picker to select a color.]]></item>
@@ -18,14 +18,14 @@
 	</category>
 	
 	<category name="wbb.acp.boardIcon">
-		<item name="wbb.acp.boardIcon.add"><![CDATA[Add Board Icon]]></item>
-		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Do you really want to delete this board icon?]]></item>
-		<item name="wbb.acp.boardIcon.button.choose"><![CDATA[Select Board Icon]]></item>
-		<item name="wbb.acp.boardIcon.edit"><![CDATA[Edit Board Icon]]></item>
+		<item name="wbb.acp.boardIcon.add"><![CDATA[Add Forum Icon]]></item>
+		<item name="wbb.acp.boardIcon.delete.confirmMessage"><![CDATA[Do you really want to delete this forum icon?]]></item>
+		<item name="wbb.acp.boardIcon.button.choose"><![CDATA[Select Forum Icon]]></item>
+		<item name="wbb.acp.boardIcon.edit"><![CDATA[Edit Forum Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon"><![CDATA[Icon]]></item>
 		<item name="wbb.acp.boardIcon.icon.description"><![CDATA[Allowed file extensions: gif, jpg, jepg, png]]></item>
 		<item name="wbb.acp.boardIcon.info"><![CDATA[Please note that by default, icons of size 32&times;32 pixels are used. If you are using a custom style, it might be necessary that the icons are bigger, hence the upload only checks the icon's minimum size.]]></item>
-		<item name="wbb.acp.boardIcon.list"><![CDATA[Board Icons]]></item>
+		<item name="wbb.acp.boardIcon.list"><![CDATA[Forum Icons]]></item>
 		<item name="wbb.acp.boardIcon.icon.error.invalidExtension"><![CDATA[The uploaded file has an invalid file extension.]]></item>
 		<item name="wbb.acp.boardIcon.icon.error.minHeight"><![CDATA[The minimum height of the uploaded image has to be 32px.]]></item>
 		<item name="wbb.acp.boardIcon.icon.error.minWidth"><![CDATA[The minimum width of the uploaded image has to be 32px.]]></item>
@@ -34,18 +34,18 @@
 	</category>
 	
 	<category name="wbb.acp.menu">
-		<item name="wbb.acp.menu.link.boardIcon.add"><![CDATA[Add Board Icon]]></item>
-		<item name="wbb.acp.menu.link.boardIcon.list"><![CDATA[List Board Icons]]></item>
+		<item name="wbb.acp.menu.link.boardIcon.add"><![CDATA[Add Forum Icon]]></item>
+		<item name="wbb.acp.menu.link.boardIcon.list"><![CDATA[List Forum Icons]]></item>
 	</category>
 	
 	<category name="wcf.acp.option">
 		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Default Icon]]></item>
-		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[The icon will be shown in the board list next to the board with no unread threads.]]></item>
+		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[The icon will be shown in the forum list next to the forums with no unread threads.]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Unread Icon]]></item>
-		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[The icon will be shown in the board list next to the boards with unread threads.]]></item>
+		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[The icon will be shown in the forum list next to the forums with unread threads.]]></item>
 	</category>
 	
 	<category name="wcf.acp.group">
-		<item name="wcf.acp.group.option.admin.board.canManageBoardIcon"><![CDATA[Can manage board icons]]></item>
+		<item name="wcf.acp.group.option.admin.board.canManageBoardIcon"><![CDATA[Can manage forum icons]]></item>
 	</category>
 </language>

@@ -21,6 +21,10 @@
 		<requiredpackage minversion="1.1.0" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
 	</requiredpackages>
 	
+	<excludedpackages>
+		<excludedpackage version="1.2.0 Alpha 1">com.maasdt.wcf.fontAwesomeIconUtil</excludedpackage>
+	</excludedpackages>
+	
 	<instructions type="install">
 		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
 		<instruction type="file" application="wbb">files.tar</instruction>

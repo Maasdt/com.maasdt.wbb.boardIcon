@@ -5,8 +5,8 @@
 		<packagename language="de">Burning Board: Forum-Icons</packagename>
 		<packagedescription><![CDATA[Adds possibility to select distinct icons for each forum]]></packagedescription>
 		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.1.0</version>
-		<date>2014-08-01</date>
+		<version>1.2.0 Beta 1</version>
+		<date>2014-08-31</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -38,25 +38,10 @@
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 	</instructions>
 	
-	<instructions type="update" fromversion="1.1.0 RC 2">
-		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
+	<instructions type="update" fromversion="1.0.0">
 		<instruction type="file" application="wbb">files.tar</instruction>
 		
-		<instruction type="language">language/*.xml</instruction>
-		
-		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon.php</instruction>
-	</instructions>
-	
-	<instructions type="update" fromversion="1.0.0 pl 1">
-		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
-		<instruction type="file" application="wbb">files.tar</instruction>
-		<instruction type="sql">update_1.1.0.sql</instruction>
-		
-		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="eventListener">eventListener.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
 		<instruction type="option">option.xml</instruction>
-		<instruction type="userGroupOption">userGroupOption.xml</instruction>
 		
 		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon.php</instruction>
 	</instructions>

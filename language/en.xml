@@ -39,8 +39,14 @@
 	</category>
 	
 	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.wbb_default_archive_icon"><![CDATA[Archive Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_archive_icon.description"><![CDATA[The icon will be shown in the board list next to archives with no unread threads.]]></item>
 		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Default Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[The icon will be shown in the forum list next to the forums with no unread threads.]]></item>
+		<item name="wcf.acp.option.wbb_default_external_link_icon"><![CDATA[External Link Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_external_link_icon.description"><![CDATA[The icon will be shown in the board list next external links.]]></item>
+		<item name="wcf.acp.option.wbb_default_new_archive_icon"><![CDATA[Unread Archive Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_new_archive_icon.description"><![CDATA[The icon will be shown in the board list next to archives with unread threads.]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Unread Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[The icon will be shown in the forum list next to the forums with unread threads.]]></item>
 	</category>

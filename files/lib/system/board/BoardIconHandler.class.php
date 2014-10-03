@@ -78,7 +78,7 @@ class BoardIconHandler extends SingletonFactory {
 		$fileContent = '';
 		
 		$options = Option::getOptions();
-		if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
+		if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue) {
 			$fileContent .= ".wbbBoardList li > .wbbBoard > .icon,\n.wbbSubBoards li > .icon {\n";
 			
 			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
@@ -87,7 +87,21 @@ class BoardIconHandler extends SingletonFactory {
 			if ($options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
 				$fileContent .= $this->getIconLESSCode('icon-folder-close', $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue);
 			}
+			if ($options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue) {
+				$fileContent .= $this->getIconLESSCode('icon-globe', $options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue);
+			}
 			
+			$fileContent .= "}\n\n";
+		}
+		
+		if ($options['WBB_DEFAULT_ARCHIVE_ICON']->optionValue) {
+			$fileContent .= ".wbbBoardList li > .wbbBoard:not(.new) > .icon,\n.wbbSubBoards li:not(.new) > .icon {\n";
+			$fileContent .= $this->getIconLESSCode('icon-lock', $options['WBB_DEFAULT_ARCHIVE_ICON']->optionValue);
+			$fileContent .= "}\n\n";
+		}
+		if ($options['WBB_DEFAULT_NEW_ARCHIVE_ICON']->optionValue) {
+			$fileContent .= ".wbbBoardList li > .wbbBoard:not(.new) > .icon,\n.wbbSubBoards li:not(.new) > .icon {\n";
+			$fileContent .= $this->getIconLESSCode('icon-lock', $options['WBB_DEFAULT_NEW_ARCHIVE_ICON']->optionValue);
 			$fileContent .= "}\n\n";
 		}
 		

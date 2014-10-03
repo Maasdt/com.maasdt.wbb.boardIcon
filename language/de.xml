@@ -39,8 +39,14 @@
 	</category>
 	
 	<category name="wcf.acp.option">
+		<item name="wcf.acp.option.wbb_default_archive_icon"><![CDATA[Archiv-Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_archive_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben Archiven ohne ungelesene Themen angezeigt.]]></item>
 		<item name="wcf.acp.option.wbb_default_board_icon"><![CDATA[Standard-Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren ohne ungelesene Themen angezeigt.]]></item>
+		<item name="wcf.acp.option.wbb_default_external_link_icon"><![CDATA[Externer Verweis-Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_external_link_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben externen Verweisen angezeigt.]]></item>
+		<item name="wcf.acp.option.wbb_default_new_archive_icon"><![CDATA[Ungelesenes Archiv-Icon]]></item>
+		<item name="wcf.acp.option.wbb_default_new_archive_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben Archiven mit ungelesenen Themen angezeigt.]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon"><![CDATA[Ungelesen-Icon]]></item>
 		<item name="wcf.acp.option.wbb_default_new_board_icon.description"><![CDATA[Das Icon wird in der Forenauflistung neben den Foren mit ungelesenen Themen angezeigt.]]></item>
 	</category>

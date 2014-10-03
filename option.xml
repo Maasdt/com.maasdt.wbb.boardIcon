@@ -7,8 +7,22 @@
 				<optiontype>WBBBoardIconSelect</optiontype>
 				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
 			</option>
-			
 			<option name="wbb_default_new_board_icon">
+				<categoryname>board.index.boards</categoryname>
+				<optiontype>WBBBoardIconSelect</optiontype>
+				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
+			</option>
+			<option name="wbb_default_external_link_icon">
+				<categoryname>board.index.boards</categoryname>
+				<optiontype>WBBBoardIconSelect</optiontype>
+				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
+			</option>
+			<option name="wbb_default_archive_icon">
+				<categoryname>board.index.boards</categoryname>
+				<optiontype>WBBBoardIconSelect</optiontype>
+				<noselection>wbb.acp.board.icon.defaultIcon</noselection>
+			</option>
+			<option name="wbb_default_new_archive_icon">
 				<categoryname>board.index.boards</categoryname>
 				<optiontype>WBBBoardIconSelect</optiontype>
 				<noselection>wbb.acp.board.icon.defaultIcon</noselection>

@@ -4,12 +4,13 @@ use wbb\data\WBBDatabaseObject;
 use wcf\data\ILinkableObject;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
+use wcf\util\FileUtil;
 
 /**
  * Represents an uploaded icon which can be used as board icon.
  * 
- * @author	Matthias Schmidt
- * @copyright	2014 Maasdt
+ * @author	Tim Duesterhus, Matthias Schmidt
+ * @copyright	2014-2015 Maasdt, wbbaddons
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	data.board.icon
@@ -30,7 +31,7 @@ class BoardIcon extends WBBDatabaseObject implements ILinkableObject, IRouteCont
 	 * @see	\wcf\data\ILinkableObject::getLink()
 	 */
 	public function getLink() {
-		return WCF::getPath('wbb').'icon/board/'.$this->iconID.'-'.$this->fileHash.'.'.$this->fileExtension;
+		return FileUtil::removeTrailingSlash(FileUtil::getRelativePath(WCF_DIR.'style/', $this->getLocation()));
 	}
 	
 	/**

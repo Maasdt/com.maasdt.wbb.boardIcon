@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <package name="com.maasdt.wbb.boardIcon" xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/package.xsd">
 	<packageinformation>
-		<packagename>Burning Board: Forum Icons</packagename>
-		<packagename language="de">Burning Board: Forum-Icons</packagename>
-		<packagedescription><![CDATA[Adds possibility to select distinct icons for each forum]]></packagedescription>
-		<packagedescription language="de"><![CDATA[Ermöglicht die Auswahl individueller Foren-Icons]]></packagedescription>
-		<version>1.2.0 Beta 1</version>
-		<date>2014-08-31</date>
+		<packagename>WoltLab Suite Forum: Forum Icons</packagename>
+		<packagename language="de">WoltLab Suite Forum: Forum-Icons</packagename>
+		<packagedescription>Adds possibility to select distinct icons for each forum</packagedescription>
+		<packagedescription language="de">Ermöglicht die Auswahl individueller Foren-Icons</packagedescription>
+		<version>2.0.0</version>
+		<date>2016-08-20</date>
 	</packageinformation>
 	
 	<authorinformation>
@@ -14,14 +14,14 @@
 	</authorinformation>
 	
 	<requiredpackages>
-		<requiredpackage minversion="2.0.8">com.woltlab.wcf</requiredpackage>
-		<requiredpackage minversion="4.0.8">com.woltlab.wbb</requiredpackage>
+		<requiredpackage minversion="3.0.0 Alpha 1">com.woltlab.wcf</requiredpackage>
+		<requiredpackage minversion="5.0.0 Alpha 1">com.woltlab.wbb</requiredpackage>
 		
-		<requiredpackage minversion="1.1.0" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
+		<requiredpackage minversion="2.0.0 Alpha 1" file="requirements/com.maasdt.wcf.fontAwesomeIconUtil.tar">com.maasdt.wcf.fontAwesomeIconUtil</requiredpackage>
 	</requiredpackages>
 	
 	<excludedpackages>
-		<excludedpackage version="1.2.0 Alpha 1">com.maasdt.wcf.fontAwesomeIconUtil</excludedpackage>
+		<excludedpackage version="2.1.0 Alpha 1">com.maasdt.wcf.fontAwesomeIconUtil</excludedpackage>
 	</excludedpackages>
 	
 	<instructions type="install">
@@ -35,13 +35,5 @@
 		<instruction type="option">option.xml</instruction>
 		<instruction type="templateListener">templateListener.xml</instruction>
 		<instruction type="userGroupOption">userGroupOption.xml</instruction>
-	</instructions>
-	
-	<instructions type="update" fromversion="1.0.0">
-		<instruction type="file" application="wbb">files.tar</instruction>
-		
-		<instruction type="option">option.xml</instruction>
-		
-		<instruction type="script" application="wbb">acp/update_com.maasdt.wbb.boardIcon.php</instruction>
 	</instructions>
 </package>

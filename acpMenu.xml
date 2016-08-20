@@ -2,15 +2,15 @@
 <data xmlns="http://www.woltlab.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.woltlab.com http://www.woltlab.com/XSD/maelstrom/acpMenu.xsd">
 	<import>
 		<acpmenuitem name="wbb.acp.menu.link.boardIcon.list">
-			<controller><![CDATA[wbb\acp\page\BoardIconListPage]]></controller>
+			<controller>wbb\acp\page\BoardIconListPage</controller>
 			<parent>wbb.acp.menu.link.board</parent>
 			<permissions>admin.board.canManageBoardIcon</permissions>
 		</acpmenuitem>
-		
 		<acpmenuitem name="wbb.acp.menu.link.boardIcon.add">
-			<controller><![CDATA[wbb\acp\form\BoardIconAddForm]]></controller>
-			<parent>wbb.acp.menu.link.board</parent>
+			<controller>wbb\acp\form\BoardIconAddForm</controller>
+			<parent>wbb.acp.menu.link.boardIcon.list</parent>
 			<permissions>admin.board.canManageBoardIcon</permissions>
+			<icon>fa-plus</icon>
 		</acpmenuitem>
 	</import>
 </data>

@@ -3,7 +3,7 @@
 	<import>
 		<templatelistener name="boardAddBoardIcon">
 			<environment>admin</environment>
-			<eventname>generalFieldsets</eventname>
+			<eventname>sections</eventname>
 			<templatecode><![CDATA[{include file='__boardAddBoardIcon' application='wbb'}]]></templatecode>
 			<templatename>boardAdd</templatename>
 		</templatelistener>

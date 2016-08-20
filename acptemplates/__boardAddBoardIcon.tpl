@@ -114,8 +114,8 @@
 	//]]>
 </script>
 
-<fieldset id="iconContainer">
-	<legend>{lang}wbb.acp.board.icons{/lang}</legend>
+<section id="iconContainer">
+	<h2 class="sectionTitle">{lang}wbb.acp.board.icons{/lang}</h2>
 	
 	<dl{if $errorField == 'icon'} class="formError"{/if}>
 		<dt><label for="icon">{lang}wbb.acp.board.icon{/lang}</label></dt>
@@ -190,4 +190,4 @@
 			{/if}
 		</dd>
 	</dl>
-</fieldset>
+</section>

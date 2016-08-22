@@ -4,6 +4,8 @@ use wbb\system\board\BoardIconHandler;
 use wcf\data\AbstractDatabaseObjectAction;
 use wcf\system\exception\UserInputException;
 use wcf\system\upload\DefaultUploadFileValidationStrategy;
+use wcf\system\upload\UploadFile;
+use wcf\system\upload\UploadHandler;
 use wcf\system\WCF;
 
 /**
@@ -47,6 +49,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		$this->parameters['data']['fileHash'] = sha1_file($fileLocation);
 		$this->parameters['data']['filesize'] = filesize($fileLocation);
 		
+		/** @var BoardIcon $boardIcon */
 		$boardIcon = parent::create();
 		
 		// move file to final position
@@ -63,7 +66,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		$returnValue = parent::delete();
 		
 		// delete files
-		foreach ($this->objects as $boardIcon) {
+		foreach ($this->getObjects() as $boardIcon) {
 			@unlink($boardIcon->getLocation());
 		}
 		
@@ -89,12 +92,15 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 			}
 		}
 		
-		if (count($this->parameters['__files']->getFiles()) != 1) {
+		/** @var UploadHandler $uploadHandler */
+		$uploadHandler = $this->parameters['__files'];
+		
+		if (count($uploadHandler->getFiles()) != 1) {
 			throw new UserInputException('files');
 		}
 		
 		// validate file
-		$this->parameters['__files']->validateFiles(new DefaultUploadFileValidationStrategy(PHP_INT_MAX, ['gif', 'jpg', 'jpeg', 'png']));
+		$uploadHandler->validateFiles(new DefaultUploadFileValidationStrategy(PHP_INT_MAX, ['gif', 'jpg', 'jpeg', 'png']));
 	}
 	
 	/**
@@ -103,8 +109,9 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	 * @return	string[]
 	 */
 	public function upload() {
-		$files = $this->parameters['__files']->getFiles();
-		$file = $files[0];
+		/** @var UploadFile $file */
+		/** @noinspection PhpUndefinedMethodInspection */
+		$file = $this->parameters['__files']->getFiles()[0];
 		
 		$errorType = $file->getValidationErrorType();
 		if (!$errorType) {

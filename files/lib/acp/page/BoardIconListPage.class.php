@@ -21,7 +21,7 @@ class BoardIconListPage extends MultipleLinkPage {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermission
 	 */
-	public $neededPermission = array('admin.board.canManageBoardIcon');
+	public $neededPermission = ['admin.board.canManageBoardIcon'];
 	
 	/**
 	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName

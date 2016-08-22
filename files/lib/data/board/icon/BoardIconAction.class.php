@@ -26,12 +26,12 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
 	 */
-	protected $permissionsDelete = array('admin.board.canManageBoardIcon');
+	protected $permissionsDelete = ['admin.board.canManageBoardIcon'];
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::$requireACP
 	 */
-	protected $requireACP = array('delete', 'update', 'upload');
+	protected $requireACP = ['delete', 'update', 'upload'];
 	
 	/**
 	 * @see	\wcf\data\AbstractDatabaseObjectAction::create()
@@ -90,7 +90,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 		}
 		
 		// validate file
-		$this->parameters['__files']->validateFiles(new DefaultUploadFileValidationStrategy(PHP_INT_MAX, array('gif', 'jpg', 'jpeg', 'png')));
+		$this->parameters['__files']->validateFiles(new DefaultUploadFileValidationStrategy(PHP_INT_MAX, ['gif', 'jpg', 'jpeg', 'png']));
 	}
 	
 	/**
@@ -122,19 +122,19 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 						@unlink($file->getLocation());
 						
 						$boardIconEditor = new BoardIconEditor($this->boardIcon);
-						$boardIconEditor->update(array(
+						$boardIconEditor->update([
 							'fileExtension' => $file->getFileExtension(),
 							'fileHash' => $fileHash,
 							'filesize' => filesize($newFileLocation)
-						));
+						]);
 						
 						BoardIconHandler::getInstance()->writeStyleFile();
 						
 						$this->boardIcon = new BoardIcon($this->boardIcon->iconID);
 						
-						return array(
+						return [
 							'url' => $this->boardIcon->getLink()
-						);
+						];
 					}
 					else {
 						$errorType = 'uploadFailed';
@@ -145,9 +145,9 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 					
 					WCF::getSession()->register('wbbBoardIcon-'.$this->parameters['tmpHash'], $file->getFileExtension());
 					
-					return array(
+					return [
 						'url' => WCF::getPath('wbb').'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension()
-					);
+					];
 				}
 				else {
 					$errorType = 'uploadFailed';
@@ -155,8 +155,8 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 			}
 		}
 		
-		return array(
+		return [
 			'errorMessage' => WCF::getLanguage()->get('wbb.acp.boardIcon.icon.error.'.$errorType)
-		);
+		];
 	}
 }

@@ -35,7 +35,7 @@ class WBBBoardIconSelectOptionType extends FontAwesomeIconSelectOptionType {
 				return strcmp($boardIconA->getTitle(), $boardIconB->getTitle());
 			});
 			
-			$boardIcons = array();
+			$boardIcons = [];
 			foreach ($sortedBoardIcons as $boardIcon) {
 				$boardIcons['wbbBoardIcon'.$boardIcon->iconID] = $boardIcon->getTitle();
 			}

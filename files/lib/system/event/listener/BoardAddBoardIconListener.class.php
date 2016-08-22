@@ -39,7 +39,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * data of the available icons used for the selection dialog
 	 * @var	array
 	 */
-	protected $iconData = array();
+	protected $iconData = [];
 	
 	/**
 	 * name of the board icon if the board contains unread threads
@@ -76,7 +76,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * @see	\wcf\page\IPage::assignVariables()
 	 */
 	protected function assignVariables(BoardAddForm $eventObj) {
-		WCF::getTPL()->assign(array(
+		WCF::getTPL()->assign([
 			'icon' => $this->icon,
 			'iconColor' => $this->iconColor ?: 'rgba(0, 0, 0, 1)',
 			'iconData' => $this->iconData,
@@ -85,7 +85,7 @@ class BoardAddBoardIconListener implements IEventListener {
 			'icons' => $this->icons,
 			'useIconColor' => $this->useIconColor,
 			'useIconNewColor' => $this->useIconNewColor
-		));
+		]);
 	}
 	
 	/**
@@ -94,7 +94,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	public function execute($eventObj, $className, $eventName) {
 		if (method_exists($this, $eventName)) {
 			if ($this->icons === null) {
-				$this->iconData = $this->icons = array();
+				$this->iconData = $this->icons = [];
 				
 				$boardIconList = new BoardIconList();
 				$boardIconList->readObjects();
@@ -104,22 +104,22 @@ class BoardAddBoardIconListener implements IEventListener {
 						return strcmp($boardIconA->getTitle(), $boardIconB->getTitle());
 					});
 					
-					$boardIcons = array();
+					$boardIcons = [];
 					foreach ($sortedBoardIcons as $boardIcon) {
 						$this->icons['wbbBoardIcon'.$boardIcon->iconID] = $boardIcon->getTitle();
-						$this->iconData['wbbBoardIcon'.$boardIcon->iconID] = array(
+						$this->iconData['wbbBoardIcon'.$boardIcon->iconID] = [
 							'link' => $boardIcon->getLink(),
 							'title' => $boardIcon->getTitle()
-						);
+						];
 					}
 				}
 				
 				$this->icons = array_merge($this->icons, FontAwesomeIconUtil::getIcons());
 				
 				foreach (FontAwesomeIconUtil::getIcons() as $faIcon) {
-					$this->iconData[$faIcon] = array(
+					$this->iconData[$faIcon] = [
 						'title' => $faIcon
-					);
+					];
 				}
 			}
 			
@@ -157,12 +157,12 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * @see	\wcf\form\IForm::save()
 	 */
 	protected function save(BoardAddForm $eventObj) {
-		$eventObj->additionalFields = array_merge($eventObj->additionalFields, array(
+		$eventObj->additionalFields = array_merge($eventObj->additionalFields, [
 			'icon' => $this->icon,
 			'iconColor' => $this->iconColor,
 			'iconNew' => $this->iconNew,
 			'iconNewColor' => $this->iconNewColor
-		));
+		]);
 	}
 	
 	/**

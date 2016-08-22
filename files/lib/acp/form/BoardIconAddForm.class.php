@@ -28,7 +28,7 @@ class BoardIconAddForm extends AbstractForm {
 	/**
 	 * @see	\wcf\page\AbstractPage::$neededPermission
 	 */
-	public $neededPermission = array('admin.board.canManageBoardIcon');
+	public $neededPermission = ['admin.board.canManageBoardIcon'];
 	
 	/**
 	 * temporary hash used to identify uploaded icons
@@ -44,10 +44,10 @@ class BoardIconAddForm extends AbstractForm {
 		
 		I18nHandler::getInstance()->assignVariables();
 		
-		WCF::getTPL()->assign(array(
+		WCF::getTPL()->assign([
 			'action' => 'add',
 			'tmpHash' => $this->tmpHash
-		));
+		]);
 	}
 	
 	/**
@@ -81,19 +81,19 @@ class BoardIconAddForm extends AbstractForm {
 	public function save() {
 		parent::save();
 		
-		$this->objectAction = new BoardIconAction(array(), 'create', array(
-			'data' => array_merge($this->additionalFields, array(
+		$this->objectAction = new BoardIconAction([], 'create', [
+			'data' => array_merge($this->additionalFields, [
 				'title' => I18nHandler::getInstance()->isPlainValue('title') ? I18nHandler::getInstance()->getValue('title') : ''
-			)),
+			]),
 			'tmpHash' => $this->tmpHash
-		));
+		]);
 		$returnValues = $this->objectAction->executeAction();
 		
 		if (!I18nHandler::getInstance()->isPlainValue('title')) {
 			$boardIconEditor = new BoardIconEditor($returnValues['returnValues']);
-			$boardIconEditor->update(array(
+			$boardIconEditor->update([
 				'title' => 'wbb.acp.boardIcon.title.boardIcon'.$boardIconEditor->iconID
-			));
+			]);
 			
 			I18nHandler::getInstance()->save('title', 'wbb.acp.boardIcon.title'.$boardIconEditor->iconID, 'wbb.acp.boardIcon', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'));
 		}

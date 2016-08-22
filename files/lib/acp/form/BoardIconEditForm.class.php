@@ -52,11 +52,11 @@ class BoardIconEditForm extends BoardIconAddForm {
 		
 		I18nHandler::getInstance()->assignVariables(!empty($_POST));
 		
-		WCF::getTPL()->assign(array(
+		WCF::getTPL()->assign([
 			'action' => 'edit',
 			'boardIcon' => $this->boardIcon,
 			'boardIcons' => $this->boardIcons
-		));
+		]);
 	}
 	
 	/**
@@ -102,12 +102,12 @@ class BoardIconEditForm extends BoardIconAddForm {
 			I18nHandler::getInstance()->save('title', $title, 'wbb.acp.boardIcon', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'));
 		}
 		
-		$this->objectAction = new BoardIconAction(array($this->boardIcon), 'update', array(
-			'data' => array_merge($this->additionalFields, array(
+		$this->objectAction = new BoardIconAction([$this->boardIcon], 'update', [
+			'data' => array_merge($this->additionalFields, [
 				'title' => $title
-			)),
+			]),
 			'tmpHash' => $this->tmpHash
-		));
+		]);
 		$this->objectAction->executeAction();
 		
 		$this->saved();

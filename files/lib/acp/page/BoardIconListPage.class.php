@@ -1,5 +1,6 @@
 <?php
 namespace wbb\acp\page;
+use wbb\data\board\icon\BoardIconList;
 use wcf\page\MultipleLinkPage;
 
 /**
@@ -26,5 +27,5 @@ class BoardIconListPage extends MultipleLinkPage {
 	/**
 	 * @inheritDoc
 	 */
-	public $objectListClassName = 'wbb\data\board\icon\BoardIconList';
+	public $objectListClassName = BoardIconList::class;
 }

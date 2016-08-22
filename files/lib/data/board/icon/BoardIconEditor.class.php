@@ -16,5 +16,5 @@ class BoardIconEditor extends DatabaseObjectEditor {
 	/**
 	 * @inheritDoc
 	 */
-	protected static $baseClass = 'wbb\data\board\icon\BoardIcon';
+	protected static $baseClass = BoardIcon::class;
 }

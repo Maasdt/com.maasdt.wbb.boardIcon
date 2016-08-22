@@ -10,7 +10,7 @@ use wcf\util\FileUtil;
  * Represents an uploaded icon which can be used as board icon.
  * 
  * @author	Tim Duesterhus, Matthias Schmidt
- * @copyright	2014-2015 Maasdt, wbbaddons
+ * @copyright	2014-2016 Maasdt, wbbaddons
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	data.board.icon

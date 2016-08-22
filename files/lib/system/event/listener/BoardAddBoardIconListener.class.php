@@ -16,7 +16,7 @@ use wcf\util\StringUtil;
  * Handles the board icons when creating/editing boards.
  * 
  * @author	Matthias Schmidt
- * @copyright	2014 Maasdt
+ * @copyright	2014-2016 Maasdt
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	system.board

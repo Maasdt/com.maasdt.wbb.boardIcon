@@ -13,7 +13,7 @@ use wcf\util\StringUtil;
  * Shows the form to add a new board icon.
  * 
  * @author	Matthias Schmidt
- * @copyright	2014 Maasdt
+ * @copyright	2014-2016 Maasdt
  * @license	Creative Commons Attribution-NonCommercial-ShareAlike <http://creativecommons.org/licenses/by-nc-sa/4.0/legalcode>
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	acp.form

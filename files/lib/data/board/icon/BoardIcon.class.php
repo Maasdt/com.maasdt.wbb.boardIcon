@@ -4,7 +4,6 @@ use wcf\data\DatabaseObject;
 use wcf\data\ILinkableObject;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
-use wcf\util\FileUtil;
 
 /**
  * Represents an uploaded icon which can be used as board icon.
@@ -27,7 +26,7 @@ class BoardIcon extends DatabaseObject implements ILinkableObject, IRouteControl
 	 * @inheritDoc
 	 */
 	public function getLink() {
-		return FileUtil::removeTrailingSlash(FileUtil::getRelativePath(WCF_DIR.'style/', $this->getLocation()));
+		return WCF::getPath('wbb').'icon/board/'.$this->iconID.'-'.$this->fileHash.'.'.$this->fileExtension;
 	}
 	
 	/**

@@ -2,7 +2,6 @@
 namespace wbb\acp\form;
 use wbb\data\board\icon\BoardIcon;
 use wbb\data\board\icon\BoardIconAction;
-use wbb\data\board\icon\BoardIconEditor;
 use wbb\data\board\icon\BoardIconList;
 use wcf\data\package\PackageCache;
 use wcf\form\AbstractForm;

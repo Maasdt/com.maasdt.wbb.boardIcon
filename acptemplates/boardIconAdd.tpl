@@ -11,24 +11,16 @@
 	//]]>
 </script>
 
-<header class="boxHeadline">
-	<h1>{lang}wbb.acp.boardIcon.{$action}{/lang}</h1>
-</header>
-
-<p class="info">{lang}wbb.acp.boardIcon.info{/lang}</p>
-
-{include file='formError'}
-
-{if $success|isset}
-	<p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
-{/if}
-
-<div class="contentNavigation">
-	<nav>
+<header class="contentHeader">
+	<div class="contentHeaderTitle">
+		<h1 class="contentTitle">{lang}wbb.acp.boardIcon.{$action}{/lang}</h1>
+	</div>
+	
+	<nav class="contentHeaderNavigation">
 		<ul>
 			{if $action == 'edit' && $boardIcons|count}
 				<li class="dropdown">
-					<a class="button dropdownToggle"><span class="icon icon16 icon-sort"></span> <span>{lang}wbb.acp.boardIcon.button.choose{/lang}</span></a>
+					<a class="button dropdownToggle"><span class="icon icon16 fa-sort"></span> <span>{lang}wbb.acp.boardIcon.button.choose{/lang}</span></a>
 					<div class="dropdownMenu">
 						<ul class="scrollableDropdownMenu">
 							{foreach from=$boardIcons item='editableBoardIcon'}
@@ -39,58 +31,62 @@
 				</li>
 			{/if}
 			
-			<li><a href="{link controller='BoardIconList' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-list"></span> <span>{lang}wbb.acp.menu.link.boardIcon.list{/lang}</span></a></li>
+			<li><a href="{link controller='BoardIconList' application='wbb'}{/link}" class="button"><span class="icon icon16 fa-list"></span> <span>{lang}wbb.acp.menu.link.boardIcon.list{/lang}</span></a></li>
 			
-			{event name='contentNavigationButtons'}
+			{event name='contentHeaderNavigation'}
 		</ul>
 	</nav>
-</div>
+</header>
+
+<p class="info">{lang}wbb.acp.boardIcon.info{/lang}</p>
+
+{include file='formError'}
+
+{if $success|isset}
+	<p class="success">{lang}wcf.global.success.{$action}{/lang}</p>
+{/if}
 
 <form method="post" action="{if $action == 'add'}{link controller='BoardIconAdd' application='wbb'}{/link}{else}{link controller='BoardIconEdit' object=$boardIcon application='wbb'}{/link}{/if}">
-	<div class="container containerPadding marginTop">
-		<fieldset>
-			<legend>{lang}wcf.global.form.data{/lang}</legend>
-			
-			<dl{if $errorField == 'title'} class="formError"{/if}>
-				<dt><label for="title">{lang}wcf.global.title{/lang}</label></dt>
-				<dd>
-					<input type="text" id="title" name="title" value="{$i18nPlainValues[title]}" required="required" autofocus="autofocus" class="long" />
-					{if $errorField == 'title'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{else}
-								{lang}wbb.acp.boardIcon.title.error.{@$errorType}{/lang}
-							{/if}
-						</small>
-					{/if}
-				</dd>
-			</dl>
-			{include file='multipleLanguageInputJavascript' elementIdentifier='title' forceSelection=false}
-			
-			<dl{if $errorField == 'icon'} class="formError"{/if}>
-				<dt><label for="icon">{lang}wbb.acp.boardIcon.icon{/lang}</label></dt>
-				<dd class="framed" id="boardIconContainer">
-					<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon" style="max-width: 100%;{if $action == 'add'} display: none;{/if}" />
-					<div id="uploadIcon"></div>
-					{if $errorField == 'icon'}
-						<small class="innerError">
-							{if $errorType == 'empty'}
-								{lang}wcf.global.form.error.empty{/lang}
-							{else}
-								{lang}wbb.acp.boardIcon.icon.error.{$errorType}{/lang}
-							{/if}
-						</small>
-					{/if}
-					<small>{lang}wbb.acp.boardIcon.icon.description{/lang}</small>
-				</dd>
-			</dl>
-			
-			{event name='dataFields'}
-		</fieldset>
+	<div class="section">
+		<dl{if $errorField == 'title'} class="formError"{/if}>
+			<dt><label for="title">{lang}wcf.global.title{/lang}</label></dt>
+			<dd>
+				<input type="text" id="title" name="title" value="{$i18nPlainValues[title]}" required="required" autofocus="autofocus" class="long" />
+				{if $errorField == 'title'}
+					<small class="innerError">
+						{if $errorType == 'empty'}
+							{lang}wcf.global.form.error.empty{/lang}
+						{else}
+							{lang}wbb.acp.boardIcon.title.error.{@$errorType}{/lang}
+						{/if}
+					</small>
+				{/if}
+			</dd>
+		</dl>
+		{include file='multipleLanguageInputJavascript' elementIdentifier='title' forceSelection=false}
 		
-		{event name='fieldsets'}
+		<dl{if $errorField == 'icon'} class="formError"{/if}>
+			<dt><label for="icon">{lang}wbb.acp.boardIcon.icon{/lang}</label></dt>
+			<dd class="framed" id="boardIconContainer">
+				<img src="{if $action == 'edit'}{@$boardIcon->getLink()}{/if}" alt="" id="boardIcon" style="max-width: 100%;{if $action == 'add'} display: none;{/if}" />
+				<div id="uploadIcon"></div>
+				{if $errorField == 'icon'}
+					<small class="innerError">
+						{if $errorType == 'empty'}
+							{lang}wcf.global.form.error.empty{/lang}
+						{else}
+							{lang}wbb.acp.boardIcon.icon.error.{$errorType}{/lang}
+						{/if}
+					</small>
+				{/if}
+				<small>{lang}wbb.acp.boardIcon.icon.description{/lang}</small>
+			</dd>
+		</dl>
+		
+		{event name='dataFields'}
 	</div>
+	
+	{event name='sections'}
 	
 	<div class="formSubmit">
 		<input type="submit" value="{lang}wcf.global.button.submit{/lang}" accesskey="s" />

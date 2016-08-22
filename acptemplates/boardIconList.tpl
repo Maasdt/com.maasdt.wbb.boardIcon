@@ -20,28 +20,30 @@
 	//]]>
 </script>
 
-<header class="boxHeadline">
-	<h1>{lang}wbb.acp.boardIcon.list{/lang}</h1>
-</header>
-
-<div class="contentNavigation">
-	{pages print=true assign='pagesLinks' controller='BoardIconList' link="pageNo=%d" application='wbb'}
+<header class="contentHeader">
+	<div class="contentHeaderTitle">
+		<h1 class="contentTitle">{lang}wbb.acp.boardIcon.list{/lang}</h1>
+	</div>
 	
-	<nav>
+	<nav class="contentHeaderNavigation">
 		<ul>
-			<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
+			<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 fa-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
 			
-			{event name='contentNavigationButtonsTop'}
+			{event name='contentHeaderNavigation'}
 		</ul>
 	</nav>
-</div>
+</header>
+
+{hascontent}
+	<div class="paginationTop">
+		{content}
+			{pages print=true assign='pagesLinks' controller='BoardIconList' link="pageNo=%d" application='wbb'}
+		{/content}
+	</div>
+{/hascontent}
 
 {if $objects|count}
-	<div id="boardIconTableContainer" class="tabularBox tabularBoxTitle marginTop">
-		<header>
-			<h2>{lang}wbb.acp.boardIcon.list{/lang} <span class="badge badgeInverse">{#$items}</span></h2>
-		</header>
-		
+	<div id="boardIconTableContainer" class="section tabularBox">
 		<table class="table">
 			<thead>
 				<tr>
@@ -72,17 +74,21 @@
 		</table>
 	</div>
 	
-	<div class="contentNavigation">
-		{@$pagesLinks}
+	<footer class="contentFooter">
+		{hascontent}
+			<div class="paginationBottom">
+				{content}{@$pagesLinks}{/content}
+			</div>
+		{/hascontent}
 		
-		<nav>
+		<nav class="contentFooterNavigation">
 			<ul>
-				<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 icon-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
+				<li><a href="{link controller='BoardIconAdd' application='wbb'}{/link}" class="button"><span class="icon icon16 fa-plus"></span> <span>{lang}wbb.acp.boardIcon.add{/lang}</span></a></li>
 				
-				{event name='contentNavigationButtonsBottom'}
+				{event name='contentFooterNavigation'}
 			</ul>
 		</nav>
-	</div>
+	</footer>
 {else}
 	<p class="info">{lang}wcf.global.noItems{/lang}</p>
 {/if}

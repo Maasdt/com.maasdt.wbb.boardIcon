@@ -141,7 +141,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 					}
 				}
 				else if (@copy($file->getLocation(), WBB_DIR.'icon/board/tmp/'.$this->parameters['tmpHash'].'.'.$file->getFileExtension())) {
-					@unlink($fileLocation);
+					@unlink($file->getLocation());
 					
 					WCF::getSession()->register('wbbBoardIcon-'.$this->parameters['tmpHash'], $file->getFileExtension());
 					

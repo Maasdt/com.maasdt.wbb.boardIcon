@@ -59,7 +59,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	 * list of available icons
 	 * @var	array
 	 */
-	protected $icons = null;
+	protected $icons;
 	
 	/**
 	 * indicates if a certain color is used for the board icon

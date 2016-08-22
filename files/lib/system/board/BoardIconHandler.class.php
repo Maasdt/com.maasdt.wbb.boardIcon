@@ -25,7 +25,7 @@ class BoardIconHandler extends SingletonFactory {
 	 * list with available board icons
 	 * @var	BoardIcon[]
 	 */
-	protected $boardIcons = null;
+	protected $boardIcons;
 	
 	/**
 	 * Returns the board icon with the given id or null if no such board icon

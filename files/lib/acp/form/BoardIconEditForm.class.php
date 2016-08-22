@@ -29,7 +29,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	 * edited board icon
 	 * @var	BoardIcon
 	 */
-	public $boardIcon = null;
+	public $boardIcon;
 	
 	/**
 	 * if of the edited board icon
@@ -41,7 +41,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	 * list of available board icons
 	 * @var	BoardIconList
 	 */
-	public $boardIcons = null;
+	public $boardIcons;
 	
 	/**
 	 * @inheritDoc

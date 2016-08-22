@@ -21,7 +21,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	 * board icon the uploaded icon file belongs to
 	 * @var	BoardIcon
 	 */
-	protected $boardIcon = null;
+	protected $boardIcon;
 	
 	/**
 	 * @inheritDoc

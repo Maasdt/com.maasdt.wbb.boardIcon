@@ -7,7 +7,7 @@ use wbb\data\board\icon\BoardIconList;
 use wbb\system\board\BoardIconHandler;
 use wcf\form\IForm;
 use wcf\page\IPage;
-use wcf\system\event\IEventListener;
+use wcf\system\event\listener\IParameterizedEventListener;
 use wcf\system\exception\UserInputException;
 use wcf\system\Regex;
 use wcf\system\WCF;
@@ -24,7 +24,7 @@ use wcf\util\StringUtil;
  * @subpackage	system.board
  * @category	Burning Board
  */
-class BoardAddBoardIconListener implements IEventListener {
+class BoardAddBoardIconListener implements IParameterizedEventListener {
 	/**
 	 * name of the board icon
 	 * @var	string
@@ -93,7 +93,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	/**
 	 * @inheritDoc
 	 */
-	public function execute($eventObj, $className, $eventName) {
+	public function execute($eventObj, $className, $eventName, array &$parameters) {
 		if (method_exists($this, $eventName)) {
 			if ($this->icons === null) {
 				$this->iconData = $this->icons = [];

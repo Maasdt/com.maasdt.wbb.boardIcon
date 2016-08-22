@@ -1,7 +1,7 @@
 <?php
 namespace wbb\system\event\listener;
 use wbb\system\board\BoardIconHandler;
-use wcf\system\event\IEventListener;
+use wcf\system\event\listener\IParameterizedEventListener;
 
 /**
  * Rewrites the board icons when editing the board options.
@@ -13,11 +13,11 @@ use wcf\system\event\IEventListener;
  * @subpackage	system.board
  * @category	Community Framework
  */
-class OptionFormBoardIconListener implements IEventListener {
+class OptionFormBoardIconListener implements IParameterizedEventListener {
 	/**
 	 * @inheritDoc
 	 */
-	public function execute($eventObj, $className, $eventName) {
+	public function execute($eventObj, $className, $eventName, array &$parameters) {
 		if ($eventObj->categoryName == 'board') {
 			BoardIconHandler::getInstance()->writeStyleFile();
 		}

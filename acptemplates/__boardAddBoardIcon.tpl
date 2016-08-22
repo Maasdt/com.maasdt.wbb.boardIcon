@@ -114,7 +114,7 @@
 	//]]>
 </script>
 
-<section id="iconContainer">
+<section class="section" id="iconContainer">
 	<h2 class="sectionTitle">{lang}wbb.acp.board.icons{/lang}</h2>
 	
 	<dl{if $errorField == 'icon'} class="formError"{/if}>

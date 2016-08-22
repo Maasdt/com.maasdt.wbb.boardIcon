@@ -11,5 +11,10 @@ use wcf\data\DatabaseObjectList;
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	data.board.icon
  * @category	Burning Board
+ *
+ * @method	BoardIcon	current()
+ * @method	BoardIcon[]	getObjects()
+ * @method	BoardIcon|null	search($objectID)
+ * @property	BoardIcon[]	$objects
  */
-class BoardIconList extends DatabaseObjectList { }
+class BoardIconList extends DatabaseObjectList {}

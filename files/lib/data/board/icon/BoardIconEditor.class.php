@@ -11,6 +11,10 @@ use wcf\data\DatabaseObjectEditor;
  * @package	com.maasdt.wbb.icon
  * @subpackage	data.board.icon
  * @category	Burning Board
+ *
+ * @method static	BoardIcon	create(array $parameters = [])
+ * @method		BoardIcon	getDecoratedObject()
+ * @mixin		BoardIcon
  */
 class BoardIconEditor extends DatabaseObjectEditor {
 	/**

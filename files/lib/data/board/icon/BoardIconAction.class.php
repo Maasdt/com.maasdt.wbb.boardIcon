@@ -15,6 +15,9 @@ use wcf\system\WCF;
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	data.board.icon
  * @category	Burning Board
+ * 
+ * @method	BoardIconEditor[]	getObjects()
+ * @method	BoardIconEditor		getSingleObject()
  */
 class BoardIconAction extends AbstractDatabaseObjectAction {
 	/**
@@ -35,6 +38,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	
 	/**
 	 * @inheritDoc
+	 * @return	BoardIcon
 	 */
 	public function create() {
 		$this->parameters['data']['fileExtension'] = WCF::getSession()->getVar('wbbBoardIcon-'.$this->parameters['tmpHash']);

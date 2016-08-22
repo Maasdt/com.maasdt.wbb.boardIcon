@@ -115,9 +115,8 @@ class BoardAddBoardIconListener implements IParameterizedEventListener {
 					}
 				}
 				
-				$this->icons = array_merge($this->icons, FontAwesomeIconUtil::getIconNames());
-				
 				foreach (FontAwesomeIconUtil::getIconNames() as $faIcon) {
+					$this->icons[$faIcon] = $faIcon;
 					$this->iconData[$faIcon] = ['title' => $faIcon];
 				}
 			}

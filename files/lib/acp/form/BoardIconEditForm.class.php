@@ -70,7 +70,12 @@ class BoardIconEditForm extends BoardIconAddForm {
 		parent::readData();
 		
 		if (empty($_POST)) {
-			I18nHandler::getInstance()->setOptions('title', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'), $this->boardIcon->title, 'wbb.acp.boardIcon.title\d+');
+			I18nHandler::getInstance()->setOptions(
+				'title',
+				PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'),
+				$this->boardIcon->title,
+				'wbb.acp.boardIcon.title\d+'
+			);
 		}
 		
 		$this->boardIcons = new BoardIconList();
@@ -98,7 +103,12 @@ class BoardIconEditForm extends BoardIconAddForm {
 			$title = I18nHandler::getInstance()->getValue('title');
 		}
 		else {
-			I18nHandler::getInstance()->save('title', $title, 'wbb.acp.boardIcon', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'));
+			I18nHandler::getInstance()->save(
+				'title',
+				$title,
+				'wbb.acp.boardIcon',
+				PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon')
+			);
 		}
 		
 		$this->objectAction = new BoardIconAction([$this->boardIcon], 'update', [

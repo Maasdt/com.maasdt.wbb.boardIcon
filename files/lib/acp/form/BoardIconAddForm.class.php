@@ -95,7 +95,12 @@ class BoardIconAddForm extends AbstractForm {
 				'title' => 'wbb.acp.boardIcon.title.boardIcon'.$boardIconEditor->iconID
 			]);
 			
-			I18nHandler::getInstance()->save('title', 'wbb.acp.boardIcon.title'.$boardIconEditor->iconID, 'wbb.acp.boardIcon', PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon'));
+			I18nHandler::getInstance()->save(
+				'title',
+				'wbb.acp.boardIcon.title'.$boardIconEditor->iconID,
+				'wbb.acp.boardIcon',
+				PackageCache::getInstance()->getPackageID('com.maasdt.wbb.boardIcon')
+			);
 		}
 		
 		$this->saved();

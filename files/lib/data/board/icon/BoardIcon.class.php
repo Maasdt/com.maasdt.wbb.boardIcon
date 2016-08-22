@@ -1,6 +1,6 @@
 <?php
 namespace wbb\data\board\icon;
-use wbb\data\WBBDatabaseObject;
+use wcf\data\DatabaseObject;
 use wcf\data\ILinkableObject;
 use wcf\system\request\IRouteController;
 use wcf\system\WCF;
@@ -16,17 +16,7 @@ use wcf\util\FileUtil;
  * @subpackage	data.board.icon
  * @category	Burning Board
  */
-class BoardIcon extends WBBDatabaseObject implements ILinkableObject, IRouteController {
-	/**
-	 * @see	\wcf\data\DatabaseObject::$databaseTableIndexName
-	 */
-	protected static $databaseTableIndexName = 'iconID';
-	
-	/**
-	 * @see	\wcf\data\DatabaseObject::$databaseTableName
-	 */
-	protected static $databaseTableName = 'board_icon';
-	
+class BoardIcon extends DatabaseObject implements ILinkableObject, IRouteController {
 	/**
 	 * @see	\wcf\data\ILinkableObject::getLink()
 	 */

@@ -115,12 +115,10 @@ class BoardAddBoardIconListener implements IEventListener {
 					}
 				}
 				
-				$this->icons = array_merge($this->icons, FontAwesomeIconUtil::getIcons());
+				$this->icons = array_merge($this->icons, FontAwesomeIconUtil::getIconNames());
 				
-				foreach (FontAwesomeIconUtil::getIcons() as $faIcon) {
-					$this->iconData[$faIcon] = [
-						'title' => $faIcon
-					];
+				foreach (FontAwesomeIconUtil::getIconNames() as $faIcon) {
+					$this->iconData[$faIcon] = ['title' => $faIcon];
 				}
 			}
 			

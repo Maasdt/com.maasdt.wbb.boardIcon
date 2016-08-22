@@ -15,7 +15,7 @@ use wcf\system\event\IEventListener;
  */
 class OptionFormBoardIconListener implements IEventListener {
 	/**
-	 * @see	\wcf\system\event\IEventListener::execute()
+	 * @inheritDoc
 	 */
 	public function execute($eventObj, $className, $eventName) {
 		if ($eventObj->categoryName == 'board') {

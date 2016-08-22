@@ -18,7 +18,7 @@ use wcf\util\FileUtil;
  */
 class BoardIcon extends DatabaseObject implements ILinkableObject, IRouteController {
 	/**
-	 * @see	\wcf\data\ILinkableObject::getLink()
+	 * @inheritDoc
 	 */
 	public function getLink() {
 		return FileUtil::removeTrailingSlash(FileUtil::getRelativePath(WCF_DIR.'style/', $this->getLocation()));
@@ -34,7 +34,7 @@ class BoardIcon extends DatabaseObject implements ILinkableObject, IRouteControl
 	}
 	
 	/**
-	 * @see	\wcf\data\ITitledObject::getTitle()
+	 * @inheritDoc
 	 */
 	public function getTitle() {
 		return WCF::getLanguage()->get($this->title);

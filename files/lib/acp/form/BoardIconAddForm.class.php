@@ -21,12 +21,12 @@ use wcf\util\StringUtil;
  */
 class BoardIconAddForm extends AbstractForm {
 	/**
-	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 * @inheritDoc
 	 */
 	public $activeMenuItem = 'wbb.acp.menu.link.boardIcon.add';
 	
 	/**
-	 * @see	\wcf\page\AbstractPage::$neededPermission
+	 * @inheritDoc
 	 */
 	public $neededPermission = ['admin.board.canManageBoardIcon'];
 	
@@ -37,7 +37,7 @@ class BoardIconAddForm extends AbstractForm {
 	public $tmpHash = '';
 	
 	/**
-	 * @see	\wcf\page\IPage::assignVariables()
+	 * @inheritDoc
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
@@ -51,7 +51,7 @@ class BoardIconAddForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::readFormParameters()
+	 * @inheritDoc
 	 */
 	public function readFormParameters() {
 		parent::readFormParameters();
@@ -60,7 +60,7 @@ class BoardIconAddForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see	\wcf\page\IPage::readParameters()
+	 * @inheritDoc
 	 */
 	public function readParameters() {
 		parent::readParameters();
@@ -76,7 +76,7 @@ class BoardIconAddForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::save()
+	 * @inheritDoc
 	 */
 	public function save() {
 		parent::save();
@@ -102,7 +102,7 @@ class BoardIconAddForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\AbstractForm::saved()
+	 * @inheritDoc
 	 */
 	protected function saved() {
 		parent::saved();
@@ -114,7 +114,7 @@ class BoardIconAddForm extends AbstractForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::validate()
+	 * @inheritDoc
 	 */
 	public function validate() {
 		parent::validate();

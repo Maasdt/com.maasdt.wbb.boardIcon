@@ -14,17 +14,17 @@ use wcf\page\MultipleLinkPage;
  */
 class BoardIconListPage extends MultipleLinkPage {
 	/**
-	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 * @inheritDoc
 	 */
 	public $activeMenuItem = 'wbb.acp.menu.link.boardIcon.list';
 	
 	/**
-	 * @see	\wcf\page\AbstractPage::$neededPermission
+	 * @inheritDoc
 	 */
 	public $neededPermission = ['admin.board.canManageBoardIcon'];
 	
 	/**
-	 * @see	\wcf\page\MultipleLinkPage::$objectListClassName
+	 * @inheritDoc
 	 */
 	public $objectListClassName = 'wbb\data\board\icon\BoardIconList';
 }

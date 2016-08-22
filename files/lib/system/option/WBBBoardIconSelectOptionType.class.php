@@ -17,7 +17,7 @@ use wcf\system\option\FontAwesomeIconSelectOptionType;
  */
 class WBBBoardIconSelectOptionType extends FontAwesomeIconSelectOptionType {
 	/**
-	 * @see	\wcf\system\option\FontAwesomeIconSelectOptionType::getIcons()
+	 * @inheritDoc
 	 */
 	protected function getIcons(Option $option) {
 		$icons = parent::getIcons($option);

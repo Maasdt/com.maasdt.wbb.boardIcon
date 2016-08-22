@@ -14,7 +14,7 @@ use wcf\data\DatabaseObjectEditor;
  */
 class BoardIconEditor extends DatabaseObjectEditor {
 	/**
-	 * @see	\wcf\data\DatabaseObjectDecorator::$baseClass
+	 * @inheritDoc
 	 */
 	protected static $baseClass = 'wbb\data\board\icon\BoardIcon';
 }

@@ -5,6 +5,8 @@ use wbb\acp\form\BoardEditForm;
 use wbb\data\board\icon\BoardIcon;
 use wbb\data\board\icon\BoardIconList;
 use wbb\system\board\BoardIconHandler;
+use wcf\form\IForm;
+use wcf\page\IPage;
 use wcf\system\event\IEventListener;
 use wcf\system\exception\UserInputException;
 use wcf\system\Regex;
@@ -73,9 +75,9 @@ class BoardAddBoardIconListener implements IEventListener {
 	protected $useIconNewColor = 0;
 	
 	/**
-	 * @see	\wcf\page\IPage::assignVariables()
+	 * @see	IPage::assignVariables()
 	 */
-	protected function assignVariables(BoardAddForm $eventObj) {
+	protected function assignVariables() {
 		WCF::getTPL()->assign([
 			'icon' => $this->icon,
 			'iconColor' => $this->iconColor ?: 'rgba(0, 0, 0, 1)',
@@ -89,7 +91,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\system\event\IEventListener::execute()
+	 * @inheritDoc
 	 */
 	public function execute($eventObj, $className, $eventName) {
 		if (method_exists($this, $eventName)) {
@@ -127,9 +129,9 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::readFormParameters()
+	 * @see	IForm::readFormParameters()
 	 */
-	protected function readFormParameters(BoardAddForm $eventObj) {
+	protected function readFormParameters() {
 		if (isset($_POST['icon'])) $this->icon = StringUtil::trim($_POST['icon']);
 		if (isset($_POST['iconColor'])) $this->iconColor = StringUtil::trim($_POST['iconColor']);
 		if (isset($_POST['iconNew'])) $this->iconNew = StringUtil::trim($_POST['iconNew']);
@@ -139,7 +141,8 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\page\IPage::readData()
+	 * @param	BoardEditForm	$eventObj
+	 * @see	IPage::readData()
 	 */
 	protected function readData(BoardEditForm $eventObj) {
 		if (empty($_POST)) {
@@ -153,7 +156,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::save()
+	 * @see	IForm::save()
 	 */
 	protected function save(BoardAddForm $eventObj) {
 		$eventObj->additionalFields = array_merge($eventObj->additionalFields, [
@@ -165,7 +168,7 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::save()
+	 * @see	IForm::save()
 	 */
 	protected function saved(BoardAddForm $eventObj) {
 		if (!($eventObj instanceof BoardEditForm)) {
@@ -181,9 +184,9 @@ class BoardAddBoardIconListener implements IEventListener {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::validate()
+	 * @see	IForm::validate()
 	 */
-	protected function validate(BoardAddForm $eventObj) {
+	protected function validate() {
 		if (!empty($this->icon) && !isset($this->iconData[$this->icon])) {
 			throw new UserInputException('icon', 'notValid');
 		}

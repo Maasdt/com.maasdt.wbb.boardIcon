@@ -1,5 +1,6 @@
 <?php
 namespace wbb\system\board;
+use wbb\data\board\icon\BoardIcon;
 use wbb\data\board\icon\BoardIconList;
 use wbb\data\board\BoardList;
 use wcf\data\application\Application;
@@ -22,7 +23,7 @@ use wcf\system\SingletonFactory;
 class BoardIconHandler extends SingletonFactory {
 	/**
 	 * list with available board icons
-	 * @var	array<wbb\data\board\icon\BoardIcon>
+	 * @var	BoardIcon[]
 	 */
 	protected $boardIcons = null;
 	
@@ -31,7 +32,7 @@ class BoardIconHandler extends SingletonFactory {
 	 * exists.
 	 * 
 	 * @param	integer		$iconID
-	 * @return	\wbb\data\board\icon\BoardIcon
+	 * @return	BoardIcon
 	 */
 	protected function getBoardIcon($iconID) {
 		if ($this->boardIcons === null) {

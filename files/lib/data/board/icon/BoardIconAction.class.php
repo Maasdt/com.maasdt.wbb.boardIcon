@@ -19,22 +19,22 @@ use wcf\system\WCF;
 class BoardIconAction extends AbstractDatabaseObjectAction {
 	/**
 	 * board icon the uploaded icon file belongs to
-	 * @var	wbb\data\board\icon\BoardIcon
+	 * @var	BoardIcon
 	 */
 	protected $boardIcon = null;
 	
 	/**
-	 * @see	\wcf\data\AbstractDatabaseObjectAction::$permissionsDelete
+	 * @inheritDoc
 	 */
 	protected $permissionsDelete = ['admin.board.canManageBoardIcon'];
 	
 	/**
-	 * @see	\wcf\data\AbstractDatabaseObjectAction::$requireACP
+	 * @inheritDoc
 	 */
 	protected $requireACP = ['delete', 'update', 'upload'];
 	
 	/**
-	 * @see	\wcf\data\AbstractDatabaseObjectAction::create()
+	 * @inheritDoc
 	 */
 	public function create() {
 		$this->parameters['data']['fileExtension'] = WCF::getSession()->getVar('wbbBoardIcon-'.$this->parameters['tmpHash']);
@@ -53,7 +53,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	}
 	
 	/**
-	 * @see	\wcf\data\IDeleteAction::delete()
+	 * @inheritDoc
 	 */
 	public function delete() {
 		$returnValue = parent::delete();
@@ -96,7 +96,7 @@ class BoardIconAction extends AbstractDatabaseObjectAction {
 	/**
 	 * Uploads a board icon.
 	 * 
-	 * @return	array<string>
+	 * @return	string[]
 	 */
 	public function upload() {
 		$files = $this->parameters['__files']->getFiles();

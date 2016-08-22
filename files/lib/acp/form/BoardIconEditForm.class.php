@@ -21,13 +21,13 @@ use wcf\system\WCF;
  */
 class BoardIconEditForm extends BoardIconAddForm {
 	/**
-	 * @see	\wcf\page\AbstractPage::$activeMenuItem
+	 * @inheritDoc
 	 */
 	public $activeMenuItem = 'wbb.acp.menu.link.board';
 	
 	/**
 	 * edited board icon
-	 * @var	wbb\data\board\icon\BoardIcon
+	 * @var	BoardIcon
 	 */
 	public $boardIcon = null;
 	
@@ -39,12 +39,12 @@ class BoardIconEditForm extends BoardIconAddForm {
 	
 	/**
 	 * list of available board icons
-	 * @var	\wbb\data\board\icon\BoardIconList
+	 * @var	BoardIconList
 	 */
 	public $boardIcons = null;
 	
 	/**
-	 * @see	\wcf\page\IPage::assignVariables()
+	 * @inheritDoc
 	 */
 	public function assignVariables() {
 		parent::assignVariables();
@@ -59,7 +59,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	}
 	
 	/**
-	 * @see	\wcf\page\IPage::readData()
+	 * @inheritDoc
 	 */
 	public function readData() {
 		$this->boardIcon = new BoardIcon($this->boardIconID);
@@ -78,7 +78,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	}
 	
 	/**
-	 * @see	\wcf\page\IPage::readParameters()
+	 * @inheritDoc
 	 */
 	public function readParameters() {
 		parent::readParameters();
@@ -87,7 +87,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\IForm::save()
+	 * @inheritDoc
 	 */
 	public function save() {
 		AbstractForm::save();
@@ -113,7 +113,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	}
 	
 	/**
-	 * @see	\wcf\form\AbstractForm::saved()
+	 * @inheritDoc
 	 */
 	protected function saved() {
 		AbstractForm::saved();
@@ -123,7 +123,7 @@ class BoardIconEditForm extends BoardIconAddForm {
 	}
 	
 	/**
-	 * @see	\wbb\acp\form\BoardIconAddForm::validateIcon()
+	 * @inheritDoc
 	 */
 	protected function validateIcon() {
 		// does nothing

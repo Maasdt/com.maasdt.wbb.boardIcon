@@ -25,15 +25,15 @@
 	</excludedpackages>
 	
 	<instructions type="install">
-		<instruction type="acpTemplate" application="wbb">acptemplates.tar</instruction>
-		<instruction type="file" application="wbb">files.tar</instruction>
-		<instruction type="sql">install.sql</instruction>
+		<instruction type="acpTemplate" application="wbb" />
+		<instruction type="file" application="wbb" />
+		<instruction type="sql" />
 		
-		<instruction type="acpMenu">acpMenu.xml</instruction>
-		<instruction type="eventListener">eventListener.xml</instruction>
-		<instruction type="language">language/*.xml</instruction>
-		<instruction type="option">option.xml</instruction>
-		<instruction type="templateListener">templateListener.xml</instruction>
-		<instruction type="userGroupOption">userGroupOption.xml</instruction>
+		<instruction type="acpMenu" />
+		<instruction type="eventListener" />
+		<instruction type="language" />
+		<instruction type="option" />
+		<instruction type="templateListener" />
+		<instruction type="userGroupOption" />
 	</instructions>
 </package>

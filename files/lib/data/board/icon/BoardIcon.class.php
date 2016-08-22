@@ -15,6 +15,12 @@ use wcf\util\FileUtil;
  * @package	com.maasdt.wbb.boardIcon
  * @subpackage	data.board.icon
  * @category	Burning Board
+ * 
+ * @property-read	integer		$iconID			unique id of the board icon
+ * @property-read	string		$title			title of the board icon or name of language item which contains the title
+ * @property-read	string		$fileExtension		extension of the physical board icon file
+ * @property-read	string		$fileHash		hash of the physical board icon file
+ * @property-read	integer		$filesize		size of the physical board icon file
  */
 class BoardIcon extends DatabaseObject implements ILinkableObject, IRouteController {
 	/**

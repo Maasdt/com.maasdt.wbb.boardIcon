@@ -104,7 +104,6 @@ class BoardAddBoardIconListener implements IEventListener {
 						return strcmp($boardIconA->getTitle(), $boardIconB->getTitle());
 					});
 					
-					$boardIcons = [];
 					foreach ($sortedBoardIcons as $boardIcon) {
 						$this->icons['wbbBoardIcon'.$boardIcon->iconID] = $boardIcon->getTitle();
 						$this->iconData['wbbBoardIcon'.$boardIcon->iconID] = [

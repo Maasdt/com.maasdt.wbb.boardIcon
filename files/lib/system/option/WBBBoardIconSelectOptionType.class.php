@@ -26,7 +26,7 @@ class WBBBoardIconSelectOptionType extends FontAwesomeIconSelectOptionType {
 		$boardIconList->readObjects();
 		
 		if (count($boardIconList)) {
-			if ($option->noselection) {
+			if ($option->noSelection) {
 				$noSelection = array_slice($icons, 0, 1, true);
 			}
 			
@@ -42,7 +42,7 @@ class WBBBoardIconSelectOptionType extends FontAwesomeIconSelectOptionType {
 			
 			$icons = array_merge($boardIcons, $icons);
 			
-			if ($option->noselection) {
+			if ($option->noSelection) {
 				$icons = array_merge($noSelection, $icons);
 			}
 		}

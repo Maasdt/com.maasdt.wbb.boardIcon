@@ -9,6 +9,7 @@ use wcf\system\event\EventHandler;
 use wcf\system\io\File;
 use wcf\system\style\StyleHandler;
 use wcf\system\SingletonFactory;
+use wcf\util\FontAwesomeIconUtil;
 
 /**
  * Handles the board icons file.
@@ -28,11 +29,10 @@ class BoardIconHandler extends SingletonFactory {
 	protected $boardIcons;
 	
 	/**
-	 * Returns the board icon with the given id or null if no such board icon
-	 * exists.
+	 * Returns the board icon with the given id or `null` if no such board icon exists.
 	 * 
 	 * @param	integer		$iconID
-	 * @return	BoardIcon
+	 * @return	BoardIcon|null
 	 */
 	protected function getBoardIcon($iconID) {
 		if ($this->boardIcons === null) {
@@ -49,14 +49,14 @@ class BoardIconHandler extends SingletonFactory {
 	}
 	
 	/**
-	 * Returns the LESS code for the icon with the given name.
+	 * Returns the scss code for the icon with the given name.
 	 * 
 	 * @param	string		$selector
 	 * @param	string		$iconName
 	 * @param	string		$iconColor
 	 * @return	string
 	 */
-	protected function getIconLESSCode($selector, $iconName, $iconColor = null) {
+	protected function getIconScssCode($selector, $iconName, $iconColor = null) {
 		if (preg_match('~wbbBoardIcon(\d+)~', $iconName, $matches)) {
 			$boardIcon = $this->getBoardIcon($matches[1]);
 			if ($boardIcon) {
@@ -66,7 +66,7 @@ class BoardIconHandler extends SingletonFactory {
 			return '';
 		}
 		
-		return "\t&.".$selector." {\n\t\tbackground-image: none;\n\t\t\n\t\t&::before {".($iconName ? "\n\t\t\tcontent: @".$iconName.";" : "").($iconColor ? "\n\t\t\tcolor: ".$iconColor.";" : "")."\n\t\t}\n\t}\n";
+		return "\t&.".$selector." {\n\t\tbackground-image: none;\n\t\t\n\t\t&::before {".($iconName ? "\n\t\t\tcontent: ".FontAwesomeIconUtil::getScssVariableName($iconName).";" : "").($iconColor ? "\n\t\t\tcolor: ".$iconColor.";" : "")."\n\t\t}\n\t}\n";
 	}
 	
 	/**
@@ -80,16 +80,48 @@ class BoardIconHandler extends SingletonFactory {
 		
 		$options = Option::getOptions();
 		if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue || $options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue) {
-			$fileContent .= ".wbbBoardList li > .wbbBoard > .icon,\n.wbbSubBoards li > .icon {\n";
+			$fileContent .= ".wbbBoardList li > .wbbBoard > .icon {\n";
 			
 			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
-				$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $options['WBB_DEFAULT_BOARD_ICON']->optionValue);
+				$fileContent .= $this->getIconScssCode(
+					'fa-folder-open-o',
+					$options['WBB_DEFAULT_BOARD_ICON']->optionValue
+				);
 			}
 			if ($options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
-				$fileContent .= $this->getIconLESSCode('icon-folder-close', $options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue);
+				$fileContent .= $this->getIconScssCode(
+					'fa-folder-open',
+					$options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue
+				);
 			}
 			if ($options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue) {
-				$fileContent .= $this->getIconLESSCode('icon-globe', $options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue);
+				$fileContent .= $this->getIconScssCode(
+					'fa-globe',
+					$options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue
+				);
+			}
+			
+			$fileContent .= "}\n\n";
+			
+			$fileContent .= ".wbbSubBoards li > .icon {\n";
+			
+			if ($options['WBB_DEFAULT_BOARD_ICON']->optionValue) {
+				$fileContent .= $this->getIconScssCode(
+					'fa-folder-o',
+					$options['WBB_DEFAULT_BOARD_ICON']->optionValue
+				);
+			}
+			if ($options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue) {
+				$fileContent .= $this->getIconScssCode(
+					'fa-folder',
+					$options['WBB_DEFAULT_NEW_BOARD_ICON']->optionValue
+				);
+			}
+			if ($options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue) {
+				$fileContent .= $this->getIconScssCode(
+					'fa-globe',
+					$options['WBB_DEFAULT_EXTERNAL_LINK_ICON']->optionValue
+				);
 			}
 			
 			$fileContent .= "}\n\n";
@@ -97,48 +129,113 @@ class BoardIconHandler extends SingletonFactory {
 		
 		if ($options['WBB_DEFAULT_ARCHIVE_ICON']->optionValue) {
 			$fileContent .= ".wbbBoardList li > .wbbBoard:not(.new) > .icon,\n.wbbSubBoards li:not(.new) > .icon {\n";
-			$fileContent .= $this->getIconLESSCode('icon-lock', $options['WBB_DEFAULT_ARCHIVE_ICON']->optionValue);
+			$fileContent .= $this->getIconScssCode(
+				'fa-lock',
+				$options['WBB_DEFAULT_ARCHIVE_ICON']->optionValue
+			);
 			$fileContent .= "}\n\n";
 		}
 		if ($options['WBB_DEFAULT_NEW_ARCHIVE_ICON']->optionValue) {
 			$fileContent .= ".wbbBoardList li > .wbbBoard:not(.new) > .icon,\n.wbbSubBoards li:not(.new) > .icon {\n";
-			$fileContent .= $this->getIconLESSCode('icon-lock', $options['WBB_DEFAULT_NEW_ARCHIVE_ICON']->optionValue);
+			$fileContent .= $this->getIconScssCode(
+				'fa-lock',
+				$options['WBB_DEFAULT_NEW_ARCHIVE_ICON']->optionValue
+			);
 			$fileContent .= "}\n\n";
 		}
 		
 		foreach ($boardList as $board) {
-			if (($board->isBoard() || $board->isExternalLink()) && ($board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor)) {
-				$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"] > .icon {\n";
+			$hasIcon = $board->isBoard() || $board->isExternalLink();
+			$hasCustomIcon = $board->icon || $board->iconColor || $board->iconNew || $board->iconNewColor;
+			if ($hasIcon && $hasCustomIcon) {
+				$fileContent .= ".wbbBoardList li[data-board-id=\"{$board->boardID}\"] > .wbbBoard > .icon {\n";
 				
 				if ($board->isBoard()) {
 					if ($board->isClosed) {
-						$fileContent .= $this->getIconLESSCode('icon-lock', $board->icon, $board->iconColor ?: null);
+						$fileContent .= $this->getIconScssCode(
+							'fa-lock',
+							$board->icon,
+							$board->iconColor ?: null
+						);
 					}
 					else {
 						if ($board->icon || $board->iconColor) {
-							$fileContent .= $this->getIconLESSCode('icon-folder-close-alt', $board->icon, $board->iconColor ?: null);
+							$fileContent .= $this->getIconScssCode(
+								'fa-folder-open-o',
+								$board->icon,
+								$board->iconColor ?: null
+							);
 						}
 						
 						if ($board->iconNew || $board->iconNewColor) {
-							$fileContent .= $this->getIconLESSCode('icon-folder-close', $board->iconNew, $board->iconNewColor ?: null);
+							$fileContent .= $this->getIconScssCode(
+								'fa-folder-open',
+								$board->iconNew,
+								$board->iconNewColor ?: null
+							);
 						}
 					}
 				}
 				else if ($board->isExternalLink()) {
 					if ($board->icon || $board->iconColor) {
-						$fileContent .= $this->getIconLESSCode('icon-globe', $board->icon, $board->iconColor ?: null);
+						$fileContent .= $this->getIconScssCode(
+							'fa-globe',
+							$board->icon,
+							$board->iconColor ?: null);
 					}
 				}
 				
 				$fileContent .= "}\n";
 				
 				if ($board->isBoard() && $board->isClosed && ($board->iconNew || $board->iconNewColor)) {
-					$fileContent .= ".wbbBoardList li[data-board-id=\"".$board->boardID."\"] > .wbbBoard.new > .icon,\n.wbbSubBoards li[data-board-id=\"".$board->boardID."\"].new > .icon {\n";
-					
-					$fileContent .= $this->getIconLESSCode('icon-lock', $board->iconNew, $board->iconNewColor ?: null);
-					
+					$fileContent .= ".wbbBoardList li[data-board-id=\"{$board->boardID}\"] > .wbbBoard.new > .icon,\n.wbbSubBoards li[data-board-id=\"{$board->boardID}\"].new > .icon {\n";
+					$fileContent .= $this->getIconScssCode(
+						'fa-lock',
+						$board->iconNew,
+						$board->iconNewColor ?: null
+					);
 					$fileContent .= "}\n";
 				}
+				
+				$fileContent .= ".wbbSubBoards li[data-board-id=\"{$board->boardID}\"] > .icon {\n";
+				
+				if ($board->isBoard()) {
+					if ($board->isClosed) {
+						$fileContent .= $this->getIconScssCode(
+							'fa-lock',
+							$board->icon,
+							$board->iconColor ?: null
+						);
+					}
+					else {
+						if ($board->icon || $board->iconColor) {
+							$fileContent .= $this->getIconScssCode(
+								'fa-folder-o',
+								$board->icon,
+								$board->iconColor ?: null
+							);
+						}
+						
+						if ($board->iconNew || $board->iconNewColor) {
+							$fileContent .= $this->getIconScssCode(
+								'fa-folder',
+								$board->iconNew,
+								$board->iconNewColor ?: null
+							);
+						}
+					}
+				}
+				else if ($board->isExternalLink()) {
+					if ($board->icon || $board->iconColor) {
+						$fileContent .= $this->getIconScssCode(
+							'fa-globe',
+							$board->icon,
+							$board->iconColor ?: null
+						);
+					}
+				}
+				
+				$fileContent .= "}\n";
 			}
 		}
 		
